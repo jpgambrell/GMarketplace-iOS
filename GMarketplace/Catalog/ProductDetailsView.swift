@@ -10,44 +10,49 @@ import SwiftUI
 struct ProductDetailsView: View {
     @Environment(CartModel.self) private var cart
     @Binding var navigationPath: NavigationPath
+    @State private var toast: Toast? = nil
     let product: CatalogModel
     var body: some View {
-        HStack(alignment: .top){
-            HeaderView(headerViewState: .detail, path: $navigationPath)
-        }
-        
-        ScrollView{
-            AsyncImage(url: URL(string: product.images?.first ?? "")) {
-                image in
-                
-                VStack{
-                    image
-                        .resizable()
-                    
-                        .clipShape(.rect(cornerRadius: 5))
-                    
-                }
-                .frame(width: 300, height: 300)
-                .padding()
-                Spacer()
-                VStack(alignment: .leading, spacing:5){
-                    Text(product.name ?? "").font(.title)
-                    Text("\(product.price?.formatAsCurrency() ?? "Price N/A")")
-                        .font(.title)
-                    Spacer()
-                    Text(product.description ?? "")
-                }.padding(.horizontal, 20)
-            } placeholder: {
-                ProgressView()
-            }
-        }.padding(.top, 10)
-        Spacer()
-        Button("Add to Cart") {
-            let item = CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!)
-                cart.add(item: item)
-
-        }.padding(20)
        
+            HStack(alignment: .top){
+                HeaderView(headerViewState: .detail, path: $navigationPath)
+            }
+      
+            ScrollView{
+                AsyncImage(url: URL(string: product.images?.first ?? "")) {
+                    image in
+                    
+                    VStack{
+                        image
+                            .resizable()
+                        
+                            .clipShape(.rect(cornerRadius: 5))
+                        
+                    }
+                    .frame(width: 300, height: 300)
+                    .padding()
+                    Spacer()
+                    VStack(alignment: .leading, spacing:5){
+                        Text(product.name ?? "").font(.title)
+                        Text("\(product.price?.formatAsCurrency() ?? "Price N/A")")
+                            .font(.title)
+                        Spacer()
+                        Text(product.description ?? "")
+                    }.padding(.horizontal, 20)
+                } placeholder: {
+                    ProgressView()
+                }
+            }
+            .toastView(toast: $toast)
+            .padding(.top, 10)
+            Spacer()
+            Button("Add to Cart") {
+                
+                cart.add(item: CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!))
+                toast = Toast(style: .success, message: "Saved.")
+                
+            }.padding(20)
+            
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010BF0172BFD27E2005FFD67 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BF0162BFD27E2005FFD67 /* ToastView.swift */; };
+		010BF01A2BFD285C005FFD67 /* ToastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BF0192BFD285C005FFD67 /* ToastViewModel.swift */; };
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
 		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
 		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010BF0162BFD27E2005FFD67 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		010BF0192BFD285C005FFD67 /* ToastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewModel.swift; sourceTree = "<group>"; };
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -52,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010BF0182BFD2849005FFD67 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				010BF0162BFD27E2005FFD67 /* ToastView.swift */,
+				010BF0192BFD285C005FFD67 /* ToastViewModel.swift */,
+			);
+			path = ToastView;
+			sourceTree = "<group>";
+		};
 		0183626C2BF7CE9F001BA1A4 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 				0140B13B2BF5536400B86301 /* ProductGridView.swift */,
 				01EF29F52BF4101900586122 /* HeaderView.swift */,
 				01EF29F72BF530C100586122 /* SectionHeaderView.swift */,
+				010BF0182BFD2849005FFD67 /* ToastView */,
 			);
 			path = AccessoryViews;
 			sourceTree = "<group>";
@@ -214,8 +228,10 @@
 				0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
+				010BF0172BFD27E2005FFD67 /* ToastView.swift in Sources */,
 				0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
+				010BF01A2BFD285C005FFD67 /* ToastViewModel.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,
 				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,

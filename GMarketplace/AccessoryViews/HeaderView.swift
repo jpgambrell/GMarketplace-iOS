@@ -9,7 +9,6 @@ struct HeaderView: View {
     @State var headerViewState: HeaderViewState
     @Binding var path: NavigationPath
     var body: some View {
-       // VStack{
         VStack(alignment: .leading) {
             HStack{
                 if headerViewState == .detail {
