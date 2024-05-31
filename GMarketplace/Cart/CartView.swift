@@ -7,9 +7,10 @@ struct CartView: View {
         ScrollView{
             ForEach(cart.merchantCarts, id: \.self){ basket in
                 ForEach(basket.items, id: \.self){ item in
+                    Text("\(basket.merchant)")
                     HStack(spacing: 10){
                         Text("\(item.productName)")
-                        Text("\(item.price)")
+                        Text("\(item.price.formatAsCurrency())")
                     }
                 }
             }
