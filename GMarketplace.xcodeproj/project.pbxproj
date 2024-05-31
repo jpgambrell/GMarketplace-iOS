@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
+		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
 		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
 		018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626F2BF7D67D001BA1A4 /* TabBarView.swift */; };
 		01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
+		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		0183626F2BF7D67D001BA1A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		01EF29D82BF3BC2B00586122 /* GMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			children = (
 				0183626D2BF7CEC6001BA1A4 /* CartModel.swift */,
 				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
+				0175CC962BFCF152006324D3 /* OrderModel.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */,
 				01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */,
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
+				0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */,

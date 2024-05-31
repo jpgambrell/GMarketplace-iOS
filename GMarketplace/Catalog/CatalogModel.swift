@@ -46,7 +46,7 @@ struct CatalogModel : Codable, Identifiable, Hashable {
 		sku = try values.decodeIfPresent(String.self, forKey: .sku)
 		availability = try values.decodeIfPresent(String.self, forKey: .availability)
 	}
-    init(average_rating: Double, sub_category: String, category: String, images: [String], brand: String, specs: String, price: Double, description: String, id: String, name: String, sku: String, availability: String){
+ public init(average_rating: Double, sub_category: String, category: String, images: [String], brand: String, specs: String, price: Double, description: String, id: String, name: String, sku: String, availability: String){
         self.average_rating = average_rating
         self.sub_category = sub_category
         self.category = category

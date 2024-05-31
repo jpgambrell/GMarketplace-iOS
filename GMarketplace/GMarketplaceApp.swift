@@ -4,10 +4,10 @@ import UIKit
 
 @main
 struct GMarketplaceApp: App {
-    @StateObject var cart = CartModel().createMockCart()
+    @State var cart = CartModel()//.createMockCart()
     var body: some Scene {
         WindowGroup {
-            TabBarView().environmentObject(cart)
+            TabBarView().environment(cart)
         }
     }
        

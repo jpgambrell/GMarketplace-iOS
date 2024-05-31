@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @EnvironmentObject var cart: CartModel
+    @Environment(CartModel.self) private var cart
     var body: some View {
         TabView{
             HomepageView().tabItem {
@@ -22,5 +22,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView().environmentObject(CartModel().createMockCart())
+    TabBarView().environment(CartModel().createMockCart())
 }

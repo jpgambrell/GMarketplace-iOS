@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @EnvironmentObject private var cart: CartModel
+    @Environment(CartModel.self) private var cart
     @Binding var navigationPath: NavigationPath
     let product: CatalogModel
     var body: some View {
@@ -43,7 +43,9 @@ struct ProductDetailsView: View {
         }.padding(.top, 10)
         Spacer()
         Button("Add to Cart") {
-            print("add clicked \(String(describing: cart.merchantCarts.first?.merchant))")
+            let item = CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!)
+                cart.add(item: item)
+
         }.padding(20)
        
     }
@@ -53,7 +55,7 @@ struct ProductDetailsView: View {
     struct Preview: View {
             @State var navigationPath = NavigationPath()
             var body: some View {
-                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environmentObject(CartModel().createMockCart()).task{
+                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environment(CartModel().createMockCart()).task{
                     
                 }
             }

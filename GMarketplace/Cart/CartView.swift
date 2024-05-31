@@ -2,17 +2,17 @@
 import SwiftUI
 
 struct CartView: View {
-    @EnvironmentObject private var cart: CartModel
+    @Environment(CartModel.self) private var cart
     var body: some View {
         ScrollView{
-            ForEach(cart.merchantCarts, id: \.self){ basket in
-                ForEach(basket.items, id: \.self){ item in
-                    Text("\(basket.merchant)")
+            ForEach(cart.items, id: \.self){ item in
+               // ForEach(basket.items, id: \.self){ item in
+                    Text("The Gaming Palace")
                     HStack(spacing: 10){
                         Text("\(item.productName)")
                         Text("\(item.price.formatAsCurrency())")
                     }
-                }
+                //}
             }
         }
         .padding()
@@ -20,5 +20,5 @@ struct CartView: View {
 }
 
 #Preview {
-    CartView().environmentObject(CartModel().createMockCart())
+    CartView().environment(CartModel().createMockCart())
 }
