@@ -12,25 +12,17 @@ struct ProductDetailsView: View {
     let product: CatalogModel
     var body: some View {
         HStack(alignment: .top){
-            Button(action: {
-                                      navigationPath.removeLast()
-                                  }) {
-                                      Image(systemName: "chevron.left")
-                                      Text("")
-                                  }
-            HeaderView()
-                .frame(height:75)
+            HeaderView(headerViewState: .detail, path: $navigationPath)
         }
-       
+        
         ScrollView{
-           
             AsyncImage(url: URL(string: product.images?.first ?? "")) {
                 image in
-            
+                
                 VStack{
                     image
                         .resizable()
-                        
+                    
                         .clipShape(.rect(cornerRadius: 5))
                     
                 }
@@ -40,28 +32,36 @@ struct ProductDetailsView: View {
                 VStack{
                     Text(product.name ?? "")
                     Text("$\(String(describing:product.price ?? 0.0))")
-                Spacer()
+                    Spacer()
                     Text(product.description ?? "")
-                    
                 }
             } placeholder: {
                 ProgressView()
             }
         }.padding(.top, 40)
-//            .toolbar {
-//                   ToolbarItem(placement: .navigationBarLeading) {
-//                       Button(action: {
-//                           navigationPath.removeLast()
-//                       }) {
-//                           Image(systemName: "chevron.left")
-//                           Text("Back")
-//                       }
-//                   }
-//               }
-               .navigationBarBackButtonHidden(true)
+        //            .toolbar {
+        //                   ToolbarItem(placement: .navigationBarLeading) {
+        //                       Button(action: {
+        //                           navigationPath.removeLast()
+        //                       }) {
+        //                           Image(systemName: "chevron.left")
+        //                           Text("Back")
+        //                       }
+        //                   }
+        //               }
+            .navigationBarBackButtonHidden(true)
     }
 }
 
-//#Preview {
-   // ProductDetailsView(navigationPath: nil, product: CatalogModel())
-//}
+#Preview {
+    struct Preview: View {
+            @State var navigationPath = NavigationPath()
+            var body: some View {
+                ProductDetailsView(navigationPath: $navigationPath, product: CatalogModel())
+            }
+        }
+
+        return Preview()
+
+    
+}

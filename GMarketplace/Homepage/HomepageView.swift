@@ -6,8 +6,7 @@ struct HomepageView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            HeaderView()
-                .frame(height:75)
+            HeaderView(headerViewState: .full, path: $path)
             ScrollView {
                 LazyVGrid(columns: Array(repeating: .init(.adaptive(minimum: 180), spacing: 1),
                                          count: 2),spacing: 1) {
