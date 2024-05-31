@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct HomepageView: View {
-    @State var catalog = [CatalogModel]()
+    @State private var catalog = [CatalogModel]()
     @State private var path = NavigationPath()
+    @State private var catalogManager = CatalogAPIManager()
    
-    
     var body: some View {
         NavigationStack(path: $path){
             HeaderView(headerViewState: .full, path: $path)
@@ -39,7 +39,12 @@ struct HomepageView: View {
         {
 //            let cart = CartModel().createMockCart()
 //            print("cart: \(String(describing: cart.merchantCarts.first?.merchant))")
-            self.catalog = await CatalogAPIManager().fetchCatalog(from: CatalogURL.getCatalog )
+            do {
+                self.catalog =  try await catalogManager.getCatalog(endpoint: CatalogURL.getCatalog )
+            }
+            catch {
+                
+            }
         }
     }
 }
