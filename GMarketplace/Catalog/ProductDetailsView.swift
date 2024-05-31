@@ -13,7 +13,7 @@ struct ProductDetailsView: View {
     @State private var toast: Toast? = nil
     let product: CatalogModel
     var body: some View {
-       
+        VStack{
             HStack(alignment: .top){
                 HeaderView(headerViewState: .detail, path: $navigationPath)
             }
@@ -43,7 +43,6 @@ struct ProductDetailsView: View {
                     ProgressView()
                 }
             }
-            .toastView(toast: $toast)
             .padding(.top, 10)
             Spacer()
             Button("Add to Cart") {
@@ -52,7 +51,8 @@ struct ProductDetailsView: View {
                 toast = Toast(style: .success, message: "Saved.")
                 
             }.padding(20)
-            
+        } .toastView(toast: $toast)
+           
     }
 }
 

@@ -1,10 +1,12 @@
+//
+//  ToastStyle.swift
+//  ToastDemo
+//
+//  Created by Ondrej Kvasnovsky on 1/30/23.
+//
+
+import Foundation
 import SwiftUI
-struct Toast: Equatable {
-  var style: ToastStyle
-  var message: String
-  var duration: Double = 3
-  var width: Double = .infinity
-}
 
 enum ToastStyle {
   case error

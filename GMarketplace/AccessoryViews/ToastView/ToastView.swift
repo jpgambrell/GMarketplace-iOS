@@ -1,9 +1,10 @@
 //
 //  ToastView.swift
-//  GMarketplace
+//  ToastDemo
 //
-//  Created by John Gambrell on 5/21/24.
+//  Created by Ondrej Kvasnovsky on 1/30/23.
 //
+
 import SwiftUI
 
 struct ToastView: View {
@@ -14,8 +15,7 @@ struct ToastView: View {
   var onCancelTapped: (() -> Void)
   
   var body: some View {
-      
-    HStack(alignment: .top, spacing: 12) {
+    HStack(alignment: .center, spacing: 12) {
       Image(systemName: style.iconFileName)
         .foregroundColor(style.themeColor)
       Text(message)
@@ -35,87 +35,52 @@ struct ToastView: View {
     .frame(minWidth: 0, maxWidth: width)
     .background(Color("toastBackground"))
     .cornerRadius(8)
-//    .overlay(
-//      RoundedRectangle(cornerRadius: 8)
-//        .opacity(0.2)
-//    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 8)
+        //.stroke(style.themeColor, lineWidth: 0.5)
+        .stroke(style.themeColor, lineWidth: 1)
+        .opacity(0.6)
+        //.glow(color: style.themeColor, radius: 4)
+    )
     .padding(.horizontal, 16)
-      Spacer()
-     
-  }
-   
-}
-
-#Preview {
-    ToastView(style: .success, message: "Great Success") {
-        print("hi")
-    }
-}
-   
-struct ToastModifier: ViewModifier {
-  
-  @Binding var toast: Toast?
-  @State private var workItem: DispatchWorkItem?
-  
-  func body(content: Content) -> some View {
-    content
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .overlay(
-        ZStack {
-          mainToastView()
-            .offset(y: 32)
-        }.animation(.spring(), value: toast)
-      )
-      .onChange(of: toast, { oldValue, newValue in
-          showToast()
-      })
-  }
-  
-  @ViewBuilder func mainToastView() -> some View {
-    if let toast = toast {
-      VStack {
-        ToastView(
-          style: toast.style,
-          message: toast.message,
-          width: toast.width
-        ) {
-          dismissToast()
-        }
-      //  Spacer()
-      }
-    }
-  }
-  
-  private func showToast() {
-    guard let toast = toast else { return }
-    
-    UIImpactFeedbackGenerator(style: .light)
-      .impactOccurred()
-    
-    if toast.duration > 0 {
-      workItem?.cancel()
-      
-      let task = DispatchWorkItem {
-        dismissToast()
-      }
-      
-      workItem = task
-      DispatchQueue.main.asyncAfter(deadline: .now() + toast.duration, execute: task)
-    }
-  }
-  
-  private func dismissToast() {
-    withAnimation {
-      toast = nil
-    }
-    
-    workItem?.cancel()
-    workItem = nil
   }
 }
 
-extension View {
-  func toastView(toast: Binding<Toast?>) -> some View {
-    self.modifier(ToastModifier(toast: toast))
+struct FancyToastView_Previews: PreviewProvider {
+  static var previews: some View {
+    VStack(spacing: 32) {
+      ToastView(
+        style: .success,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .info,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .warning,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .error,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+    }
+  }
+}
+
+struct FancyToastViewDark_Previews: PreviewProvider {
+  static var previews: some View {
+    VStack(spacing: 32) {
+      ToastView(
+        style: .success,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .info,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .warning,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+      ToastView(
+        style: .error,
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ") {}
+    }
+    .preferredColorScheme(.dark)
   }
 }
