@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
 		01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */; };
 		01EF29DE2BF3BC2B00586122 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DD2BF3BC2B00586122 /* ContentView.swift */; };
 		01EF29E02BF3BC2C00586122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF29DF2BF3BC2C00586122 /* Assets.xcassets */; };
@@ -16,9 +17,11 @@
 		01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29EF2BF3BE7400586122 /* HomepageView.swift */; };
 		01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */; };
 		01EF29F62BF4101900586122 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F52BF4101900586122 /* HeaderView.swift */; };
+		01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F72BF530C100586122 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		01EF29D82BF3BC2B00586122 /* GMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMarketplaceApp.swift; sourceTree = "<group>"; };
 		01EF29DD2BF3BC2B00586122 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		01EF29EF2BF3BE7400586122 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		01EF29F52BF4101900586122 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		01EF29F72BF530C100586122 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +113,9 @@
 		01EF29F42BF4100500586122 /* AccessoryViews */ = {
 			isa = PBXGroup;
 			children = (
+				0140B13B2BF5536400B86301 /* ProductGridView.swift */,
 				01EF29F52BF4101900586122 /* HeaderView.swift */,
+				01EF29F72BF530C100586122 /* SectionHeaderView.swift */,
 			);
 			path = AccessoryViews;
 			sourceTree = "<group>";
@@ -187,9 +193,11 @@
 				01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */,
 				01EF29DE2BF3BC2B00586122 /* ContentView.swift in Sources */,
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
+				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
+				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,
 				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

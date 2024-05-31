@@ -8,19 +8,34 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
+    @Binding var navigationPath: NavigationPath
     let product: CatalogModel
     var body: some View {
-        Spacer()
+        HStack(alignment: .top){
+            Button(action: {
+                                      navigationPath.removeLast()
+                                  }) {
+                                      Image(systemName: "chevron.left")
+                                      Text("")
+                                  }
+            HeaderView()
+                .frame(height:75)
+        }
+       
         ScrollView{
-            Spacer()
+           
+            AsyncImage(url: URL(string: product.images?.first ?? "")) {
+                image in
             
-            VStack{
-                ZStack{
-                    Rectangle()
-                        .fill(.green.opacity(0.5))
-                        .frame(width: 300, height: 300)
-                    Text("Product Image here")
+                VStack{
+                    image
+                        .resizable()
+                        
+                        .clipShape(.rect(cornerRadius: 5))
+                    
                 }
+                .frame(width: 300, height: 300)
+                .padding()
                 Spacer()
                 VStack{
                     Text(product.name ?? "")
@@ -29,12 +44,24 @@ struct ProductDetailsView: View {
                     Text(product.description ?? "")
                     
                 }
-                
+            } placeholder: {
+                ProgressView()
             }
-        }
+        }.padding(.top, 40)
+//            .toolbar {
+//                   ToolbarItem(placement: .navigationBarLeading) {
+//                       Button(action: {
+//                           navigationPath.removeLast()
+//                       }) {
+//                           Image(systemName: "chevron.left")
+//                           Text("Back")
+//                       }
+//                   }
+//               }
+               .navigationBarBackButtonHidden(true)
     }
 }
 
-#Preview {
-    ProductDetailsView(product: CatalogModel())
-}
+//#Preview {
+   // ProductDetailsView(navigationPath: nil, product: CatalogModel())
+//}

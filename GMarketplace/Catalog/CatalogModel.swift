@@ -1,6 +1,7 @@
 
 import Foundation
- struct CatalogModel : Codable, Identifiable, Hashable {
+struct CatalogModel : Codable, Identifiable, Hashable {
+   
 	let average_rating : Double?
 	let sub_category : String?
 	let category : String?
@@ -30,7 +31,7 @@ import Foundation
 		case availability = "availability"
 	}
 
-	init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		average_rating = try values.decodeIfPresent(Double.self, forKey: .average_rating)
 		sub_category = try values.decodeIfPresent(String.self, forKey: .sub_category)
@@ -46,18 +47,18 @@ import Foundation
 		availability = try values.decodeIfPresent(String.self, forKey: .availability)
 	}
      init() {
-         average_rating = 0.0
-         sub_category = ""
-         category = ""
-         images = nil
-         brand = ""
+         average_rating = 2.0
+         sub_category = "Mens"
+         category = "Clothing"
+         images = ["https://media.gamestop.com/i/gamestop/11143293/Honu-Turtle-Hawaiian-Islands-Word-Art-Womens-Premium-Blend-T-Shirt?$pdp2x$"]
+         brand = "Gap"
          specs = ""
-         price = 0.0
-         description = ""
-         id = ""
-         name = ""
-         sku = ""
-         availability = ""
+         price = 20.40
+         description = "A cool shirt for a cool guy."
+         id = "12332112"
+         name = "Cool Shirt"
+         sku = "123"
+         availability = "IN STOCK"
      }
 
 }
