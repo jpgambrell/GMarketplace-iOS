@@ -1,10 +1,3 @@
-//
-//  ToastModifier.swift
-//  ToastDemo
-//
-//  Created by Ondrej Kvasnovsky on 1/30/23.
-//
-
 import Foundation
 import SwiftUI
 
