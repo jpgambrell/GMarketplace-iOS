@@ -1,9 +1,3 @@
-//
-//  ProductDetailsView.swift
-//  GMarketplace
-//
-//  Created by John Gambrell on 5/14/24.
-//
 
 import SwiftUI
 
