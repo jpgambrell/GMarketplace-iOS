@@ -11,7 +11,7 @@ struct TabBarView: View {
     var body: some View {
         TabView{
             HomepageView().tabItem {
-                Label("Menu", systemImage: "list.dash")
+                Label("Home", systemImage: "storefront")
             }
             CartView().tabItem {
                 Label("Order", systemImage: "square.and.pencil")

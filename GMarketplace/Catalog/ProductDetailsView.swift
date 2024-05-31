@@ -43,7 +43,7 @@ struct ProductDetailsView: View {
         }.padding(.top, 10)
         Spacer()
         Button("Add to Cart") {
-            print("add clicked \(cart.merchant)")
+            print("add clicked \(String(describing: cart.merchantCarts.first?.merchant))")
         }.padding(20)
        
     }

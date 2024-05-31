@@ -54,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				0183626D2BF7CEC6001BA1A4 /* CartModel.swift */,
+				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -84,7 +85,6 @@
 				01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */,
 				0183626F2BF7D67D001BA1A4 /* TabBarView.swift */,
 				01EF29F32BF4094D00586122 /* Homepage */,
-				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
 				01EF29DF2BF3BC2C00586122 /* Assets.xcassets */,
 				01EF29E12BF3BC2C00586122 /* Preview Content */,
 			);

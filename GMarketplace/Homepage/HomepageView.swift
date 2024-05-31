@@ -38,7 +38,7 @@ struct HomepageView: View {
         .task
         {
             let cart = CartModel().createMockCart()
-            print("cart: \(cart.merchant)")
+            print("cart: \(String(describing: cart.merchantCarts.first?.merchant))")
             self.catalog = await CatalogAPIManager().fetchCatalog(from: CatalogURL.getCatalog )
         }
     }
