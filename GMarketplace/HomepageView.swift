@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HomepageView: View {
-   @State var catalog = [CatalogModel]()
+    @State var catalog = [CatalogModel]()
+    //@State private var showDetails = false
+    @State private var path = NavigationPath()
 
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
                ScrollView {
                            LazyVGrid(
 
@@ -23,9 +25,12 @@ struct HomepageView: View {
                            ) {
 
                                ForEach(catalog, id: \.self) { product in
+                                   
                                    AsyncImage(url: URL(string: product.images?.first ?? "")) {
                                        image in
                                        VStack{
+                                          
+                                          
                                                image
                                                    .resizable()
                                                    .frame(width: 150, height: 150)
@@ -41,10 +46,16 @@ struct HomepageView: View {
                                            }
                                            .padding([.leading, .trailing, .bottom])
                                        }
-                                       
                                        .frame(width: 180, height: 240)
-                                       
                                        .padding(.top)
+                                       .onTapGesture {
+                                           path.append(product)
+                                       }
+//                                       .contentShape(Rectangle())
+//                                          .onTapGesture {
+//                                              NavigationLink(product, value: product)
+//                                             // NavigationLink("Click me", value: product)
+//                                          }
                                        
                                    }
                                        placeholder: {
@@ -54,8 +65,13 @@ struct HomepageView: View {
                                }
                            }
                        }.background(.gray.opacity(0.1))
+                .navigationDestination(for: CatalogModel.self) { selection in
+                    ProductDetailsView(product: selection)
+                    }
                
         }
+       
+        
         
         .task {
               //  do {

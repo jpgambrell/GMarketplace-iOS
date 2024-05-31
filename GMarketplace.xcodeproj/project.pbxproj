@@ -14,6 +14,7 @@
 		01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29EB2BF3BD0900586122 /* CatalogModel.swift */; };
 		01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29ED2BF3BDC500586122 /* CatalogAPIManager.swift */; };
 		01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29EF2BF3BE7400586122 /* HomepageView.swift */; };
+		01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		01EF29EB2BF3BD0900586122 /* CatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
 		01EF29ED2BF3BDC500586122 /* CatalogAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIManager.swift; sourceTree = "<group>"; };
 		01EF29EF2BF3BE7400586122 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				01EF29EB2BF3BD0900586122 /* CatalogModel.swift */,
+				01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
+				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

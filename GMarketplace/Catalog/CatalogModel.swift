@@ -1,6 +1,6 @@
 
 import Foundation
-struct CatalogModel : Codable, Identifiable, Hashable {
+ struct CatalogModel : Codable, Identifiable, Hashable {
 	let average_rating : Double?
 	let sub_category : String?
 	let category : String?
@@ -45,5 +45,19 @@ struct CatalogModel : Codable, Identifiable, Hashable {
 		sku = try values.decodeIfPresent(String.self, forKey: .sku)
 		availability = try values.decodeIfPresent(String.self, forKey: .availability)
 	}
+     init() {
+         average_rating = 0.0
+         sub_category = ""
+         category = ""
+         images = nil
+         brand = ""
+         specs = ""
+         price = 0.0
+         description = ""
+         id = ""
+         name = ""
+         sku = ""
+         availability = ""
+     }
 
 }
