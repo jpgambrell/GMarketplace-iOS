@@ -1,9 +1,3 @@
-//
-//  CatalogAPIManager.swift
-//  GMarketplace
-//
-//  Created by John Gambrell on 5/14/24.
-//
 
 import Foundation
 
@@ -29,8 +23,8 @@ struct CatalogAPIManager {
             
             do {
                 let decoder = JSONDecoder()
-                let users = try decoder.decode([CatalogModel].self, from: data)
-                completion(.success(users))
+                let products = try decoder.decode([CatalogModel].self, from: data)
+                completion(.success(products))
             } catch {
                 completion(.failure(error))
             }

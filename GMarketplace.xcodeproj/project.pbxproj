@@ -15,6 +15,7 @@
 		01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29ED2BF3BDC500586122 /* CatalogAPIManager.swift */; };
 		01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29EF2BF3BE7400586122 /* HomepageView.swift */; };
 		01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */; };
+		01EF29F62BF4101900586122 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29F52BF4101900586122 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		01EF29ED2BF3BDC500586122 /* CatalogAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIManager.swift; sourceTree = "<group>"; };
 		01EF29EF2BF3BE7400586122 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		01EF29F52BF4101900586122 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +61,11 @@
 		01EF29DA2BF3BC2B00586122 /* GMarketplace */ = {
 			isa = PBXGroup;
 			children = (
+				01EF29F42BF4100500586122 /* AccessoryViews */,
 				01EF29EA2BF3BCAC00586122 /* Catalog */,
 				01EF29E92BF3BC5400586122 /* Networking */,
 				01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */,
-				01EF29EF2BF3BE7400586122 /* HomepageView.swift */,
+				01EF29F32BF4094D00586122 /* Homepage */,
 				01EF29DD2BF3BC2B00586122 /* ContentView.swift */,
 				01EF29DF2BF3BC2C00586122 /* Assets.xcassets */,
 				01EF29E12BF3BC2C00586122 /* Preview Content */,
@@ -93,6 +96,22 @@
 				01EF29F12BF3F52E00586122 /* ProductDetailsView.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		01EF29F32BF4094D00586122 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				01EF29EF2BF3BE7400586122 /* HomepageView.swift */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		01EF29F42BF4100500586122 /* AccessoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				01EF29F52BF4101900586122 /* HeaderView.swift */,
+			);
+			path = AccessoryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +190,7 @@
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
+				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
