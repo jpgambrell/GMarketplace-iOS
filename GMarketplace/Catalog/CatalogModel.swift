@@ -54,7 +54,7 @@ struct CatalogModel : Codable, Identifiable, Hashable {
          brand = "Gap"
          specs = ""
          price = 20.40
-         description = "A cool shirt for a cool guy."
+         description = "The Show is back! MLB The Show brings you the best of baseball. Play America's pastime your way, with new game modes, expanded team building and player customization, and an extensive personalized RPG experience. Create your own player and rise through the MLB ranks or play against others as baseball's greatest stars and legends. Fierce online competition*, exciting RPG action, lightning fast gameplay‚Äì‚ÄìThe Show 19 has it all. This is more than baseball. Welcome to The Show.      New Game Mode: Moments.  Recreate or change some of the biggest moments in baseball history**New Unannounced Game Mode: March to October.New in Road to The Show: deeper RPG elements, more ways to improve your player on and off the field, and the removal of level caps.New in Diamond Dynasty**: more streamlined mission and reward systems and numerous new quality-of-life improvements make earning rewards faster and clearer than previous years.Conquer and defend territories in new Conquest maps, designed to provide a more dynamic and reward-filled Conquest experience."
          id = "12332112"
          name = "Cool Shirt"
          sku = "123"

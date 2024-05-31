@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
+		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
+		018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626F2BF7D67D001BA1A4 /* TabBarView.swift */; };
 		01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */; };
-		01EF29DE2BF3BC2B00586122 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DD2BF3BC2B00586122 /* ContentView.swift */; };
+		01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DD2BF3BC2B00586122 /* CartView.swift */; };
 		01EF29E02BF3BC2C00586122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF29DF2BF3BC2C00586122 /* Assets.xcassets */; };
 		01EF29E32BF3BC2C00586122 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF29E22BF3BC2C00586122 /* Preview Assets.xcassets */; };
 		01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29EB2BF3BD0900586122 /* CatalogModel.swift */; };
@@ -22,9 +24,11 @@
 
 /* Begin PBXFileReference section */
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
+		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		0183626F2BF7D67D001BA1A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		01EF29D82BF3BC2B00586122 /* GMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMarketplaceApp.swift; sourceTree = "<group>"; };
-		01EF29DD2BF3BC2B00586122 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		01EF29DD2BF3BC2B00586122 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		01EF29DF2BF3BC2C00586122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01EF29E22BF3BC2C00586122 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		01EF29EB2BF3BD0900586122 /* CatalogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0183626C2BF7CE9F001BA1A4 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				0183626D2BF7CEC6001BA1A4 /* CartModel.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		01EF29CF2BF3BC2B00586122 = {
 			isa = PBXGroup;
 			children = (
@@ -65,12 +77,14 @@
 		01EF29DA2BF3BC2B00586122 /* GMarketplace */ = {
 			isa = PBXGroup;
 			children = (
+				0183626C2BF7CE9F001BA1A4 /* Cart */,
 				01EF29F42BF4100500586122 /* AccessoryViews */,
 				01EF29EA2BF3BCAC00586122 /* Catalog */,
 				01EF29E92BF3BC5400586122 /* Networking */,
 				01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */,
+				0183626F2BF7D67D001BA1A4 /* TabBarView.swift */,
 				01EF29F32BF4094D00586122 /* Homepage */,
-				01EF29DD2BF3BC2B00586122 /* ContentView.swift */,
+				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
 				01EF29DF2BF3BC2C00586122 /* Assets.xcassets */,
 				01EF29E12BF3BC2C00586122 /* Preview Content */,
 			);
@@ -191,10 +205,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */,
-				01EF29DE2BF3BC2B00586122 /* ContentView.swift in Sources */,
+				018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */,
+				01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */,
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
+				0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,

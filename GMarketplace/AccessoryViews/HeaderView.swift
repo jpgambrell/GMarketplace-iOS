@@ -16,8 +16,8 @@ struct HeaderView: View {
                     Button(action: {
                         path.removeLast()
                     }) {
-                        Image(systemName: "chevron.left")
-                        Text("")
+                        Image(systemName: "chevron.left").tint(.black)
+                       
                     }
                 }
                 TextField("Search...", text: $searchText)
@@ -30,16 +30,19 @@ struct HeaderView: View {
                     .font(.system(size: 18))
             }
             .padding(.top, 5)
-           // if headerViewState == .full {
+            
+            .padding(.bottom,(headerViewState == .detail) ? 20 : 0)
+            if headerViewState == .full {
                 HStack(alignment: .bottom){
                     Image(systemName: "mappin.and.ellipse")
                     Text("Deliver to John - Sunnyvale, TX")
                         .font(.callout)
                     Spacer()
                 }
+                .padding(.top, 5)
                 .padding(.bottom,20)
-                .padding(.top,5)
-           // }
+                
+            }
         }
         .padding(.horizontal, 20)
         .background(.orange.opacity(0.7))
@@ -54,6 +57,9 @@ struct HeaderView: View {
             @State var path = NavigationPath()
             var body: some View {
                 HeaderView(headerViewState: .full, path: $path)
+                HeaderView(headerViewState: .detail, path: $path)
+
+                
             }
         }
 

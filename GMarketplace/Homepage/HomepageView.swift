@@ -3,6 +3,7 @@ import SwiftUI
 struct HomepageView: View {
     @State var catalog = [CatalogModel]()
     @State private var path = NavigationPath()
+   
     
     var body: some View {
         NavigationStack(path: $path){
@@ -36,6 +37,8 @@ struct HomepageView: View {
         
         .task
         {
+            let cart = CartModel().createMockCart()
+            print("cart: \(cart.merchant)")
             self.catalog = await CatalogAPIManager().fetchCatalog(from: CatalogURL.getCatalog )
         }
     }

@@ -2,17 +2,13 @@
 import Foundation
 
 enum CatalogURL: String {
-    case getCatalog = "http://192.168.0.126:3000/catalog"
+   // case getCatalog = "http://192.168.0.126:3000/catalog"
+    case getCatalog = "http://localhost:3000/catalog"
 }
 
 
 struct CatalogAPIManager {
-   // func fetchCatalog(completion: @escaping (Result<[CatalogModel], Error>) -> Void) {
     func fetchCatalog(from url: CatalogURL) async -> [CatalogModel] {
-//        guard  else {
-//                   debugPrint("Invalid URL")
-//                   return nil
-//               }
         if  let url = URL(string: url.rawValue){
             
             do {
