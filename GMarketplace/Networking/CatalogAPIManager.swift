@@ -8,10 +8,9 @@ enum CatalogURL: String {
 
 
 struct CatalogAPIManager: URLSessionTasks {
-    func getCatalog(endpoint: CatalogURL) async throws -> [CatalogModel] {
-        
-        let output: [CatalogModel] = try await getRequestArray(endpoint: endpoint.rawValue)
-        return output
+    func getCatalog() async throws -> [CatalogModel] {
+        let catalog: [CatalogModel] = try await getRequestArray(endpoint: CatalogURL.getCatalog.rawValue)
+        return catalog
     }
     
     

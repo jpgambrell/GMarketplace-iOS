@@ -6,6 +6,7 @@ struct ProductDetailsView: View {
     @Binding var navigationPath: NavigationPath
     @State private var toast: Toast? = nil
     let product: CatalogModel
+    let cartManager = CartAPIManager()
     var body: some View {
         VStack{
             HStack(alignment: .top){
@@ -41,8 +42,18 @@ struct ProductDetailsView: View {
             Spacer()
             Button("Add to Cart") {
                 
-                cart.add(item: CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!))
-                toast = Toast(style: .success, message: "Saved.")
+                // cart.add(item: CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!))
+                Task {
+                    do {
+                        let res: AddtoCartResp =  try await cartManager.addToCart(productId: product.id!, productName: product.name!, quantity: 1, price: product.price!)
+                        print("cart resp: \(res)")
+                        toast = Toast(style: .success, message: "Saved.")
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
+               
                 
             }.padding(20)
         } .toastView(toast: $toast)
