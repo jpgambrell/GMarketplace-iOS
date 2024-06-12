@@ -65,7 +65,7 @@ struct ProductDetailsView: View {
     struct Preview: View {
             @State var navigationPath = NavigationPath()
             var body: some View {
-                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environment(CartModel().createMockCart()).task{
+                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environment(CartModel()).task{
                     
                 }
             }

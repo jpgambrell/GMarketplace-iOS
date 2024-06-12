@@ -3,9 +3,11 @@ import SwiftUI
 
 struct CartView: View {
     @Environment(CartModel.self) private var cart
+  //  private var cart = CartModel().createMockCart()
     var body: some View {
+
         ScrollView{
-            ForEach(cart.items, id: \.self){ item in
+            ForEach(self.cart.items, id: \.self){ item in
                // ForEach(basket.items, id: \.self){ item in
                     Text("The Gaming Palace")
                     HStack(spacing: 10){
@@ -20,5 +22,5 @@ struct CartView: View {
 }
 
 #Preview {
-    CartView().environment(CartModel().createMockCart())
+    CartView().environment(CartModel())
 }

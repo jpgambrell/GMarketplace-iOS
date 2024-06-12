@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @Environment(CartModel.self) private var cart
+    @State private var cart = CartModel()
+    @State private var cartManager = CartAPIManager()
     var body: some View {
         TabView{
             HomepageView().tabItem {
@@ -16,11 +17,21 @@ struct TabBarView: View {
             }
             CartView().tabItem {
                 Label("Order", systemImage: "square.and.pencil")
+                    
+            }.environment(cart)
+        }
+        .task {
+            do {
+                self.cart.items =  try await cartManager.getCart()
+                print("got cart")
+            }
+            catch {
+                
             }
         }
     }
 }
 
 #Preview {
-    TabBarView().environment(CartModel().createMockCart())
+    TabBarView().environment(CartModel())
 }
