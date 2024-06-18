@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B9692C221A67008A6462 /* CartCellView.swift */; };
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
 		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
 		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0107B9692C221A67008A6462 /* CartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellView.swift; sourceTree = "<group>"; };
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0183626D2BF7CEC6001BA1A4 /* CartModel.swift */,
 				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
 				0175CC962BFCF152006324D3 /* OrderModel.swift */,
+				0107B9692C221A67008A6462 /* CartCellView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */,
 				01B29FCC2BFD3B06002581BF /* ToastStyle.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
+				0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */,
 				01B29FCB2BFD3B06002581BF /* ToastModifier.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				01B29FC82BFD3B06002581BF /* ToastView.swift in Sources */,
