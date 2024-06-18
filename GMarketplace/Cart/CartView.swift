@@ -5,22 +5,32 @@ struct CartView: View {
     @Environment(CartModel.self) private var cart
   //  private var cart = CartModel().createMockCart()
     var body: some View {
-
-        ScrollView{
-            ForEach(self.cart.items, id: \.self){ item in
-               // ForEach(basket.items, id: \.self){ item in
-                    Text("The Gaming Palace")
-                    HStack(spacing: 10){
-                        Text("\(item.productName)")
-                        Text("\(item.price.formatAsCurrency())")
+            ScrollView{
+                Grid(alignment: .leadingFirstTextBaseline,
+                     horizontalSpacing: 5,
+                     verticalSpacing: 20){
+                    GridRow {
+                        Text("Item")
+                        Text("Quantity")
+                        Text("Price")
                     }
-                //}
+                    .font(.title2)
+                    Divider()
+                    ForEach(self.cart.items, id: \.self){ item in
+                        GridRow{
+                            Text("\(String(describing: item.productName!))")
+                            Text("\(item.quantity!)").gridColumnAlignment(.center)
+                            Text("\(item.price.formatAsCurrency())")
+                                .gridColumnAlignment(.center)
+                        }
+                        .font(.title3)
+                    }
+                }
+                .padding()
             }
         }
-        .padding()
     }
-}
 
 #Preview {
-    CartView().environment(CartModel())
+    CartView().environment(CartModel().createMockCart())
 }

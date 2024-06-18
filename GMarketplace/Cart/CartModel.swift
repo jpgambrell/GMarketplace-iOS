@@ -1,6 +1,6 @@
 import Foundation
 
-@Observable class CartModel: Codable {
+@Observable class CartModel {
     var id = ""
     //var merchantCarts = [MerchantCart]()
     var items = [CartItem]()
@@ -22,22 +22,14 @@ import Foundation
 //        }
 //    }
 //    
-//    func createMockCart() -> CartModel{
-//        var items = [CartItem]()
-//        items.append(CartItem(id: UUID(), productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 63.33))
-//        items.append(CartItem(id: UUID(),productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45))
-//        items.append(CartItem(id: UUID(),productId: "333", productName: "XBox Bone", quantity: 1, price: 383.13))
-//        
-////        var merch = MerchantCart()
-////        merch.id = "3424"
-////        merch.merchant = "Gaming Palace"
-////        merch.items = items
-////        
-////        
-////        self.id = "3432423"
-////        self.merchantCarts.append((merch))
-//        return self
-//    }
+    func createMockCart() -> CartModel{
+        var items = [CartItem]()
+        items.append(CartItem(id: 333, productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 63.33))
+        items.append(CartItem(id: 3334,productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45))
+        items.append(CartItem(id: 4444,productId: "333", productName: "XBox Bone", quantity: 1, price: 383.13))
+        self.items = items
+        return self
+    }
 }
 
 
@@ -48,12 +40,6 @@ import Foundation
 //}
 
 struct CartItem: Codable, Hashable, Identifiable {
-//    var id: UUID
-//    var productId: String
-//    var productName: String
-//    var quantity: Int
-//    var price: Double
-    
         let id : Int?
         let productId : String?
         let quantity : Int?
@@ -62,7 +48,6 @@ struct CartItem: Codable, Hashable, Identifiable {
         let productName : String?
 
         enum CodingKeys: String, CodingKey {
-
             case id = "id"
             case productId = "product_id"
             case quantity = "quantity"
@@ -70,6 +55,15 @@ struct CartItem: Codable, Hashable, Identifiable {
             case createdDate = "created_dt"
             case productName = "product_name"
         }
+    
+    init(id: Int, productId: String, productName: String, quantity: Int, price: Double) {
+        self.id = id
+        self.productId = productId
+        self.productName = productName
+        self.quantity = quantity
+        self.price = price
+        self.createdDate = ""
+    }
 
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
