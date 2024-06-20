@@ -2,11 +2,11 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @Environment(CartModel.self) private var cart
+    @Environment(CartService.self) private var cartService
     @Binding var navigationPath: NavigationPath
     @State private var toast: Toast? = nil
     let product: CatalogModel
-    let cartManager = CartAPIManager()
+  //  let cartManager = CartAPIManager()
     var body: some View {
         VStack{
             HStack(alignment: .top){
@@ -45,8 +45,10 @@ struct ProductDetailsView: View {
                 // cart.add(item: CartItem(id: UUID(), productId: product.id!, productName: product.name!, quantity: 1, price: product.price!))
                 Task {
                     do {
-                        let res: AddtoCartResp =  try await cartManager.addToCart(productId: product.id!, productName: product.name!, quantity: 1, price: product.price!)
+                        let res: AddtoCartResp =  try await cartService.cartAPIManager.addToCart(productId: product.id!, productName: product.name!, quantity: 1, price: product.price!)
                         print("cart resp: \(res)")
+                        
+                        try await cartService.getCart()
                         toast = Toast(style: .success, message: "Saved.")
                     }
                     catch {

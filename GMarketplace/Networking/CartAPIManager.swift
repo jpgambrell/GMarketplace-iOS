@@ -23,8 +23,16 @@ struct CartAPIManager: URLSessionTasks {
         return cartItems
     }
     func addToCart(productId: String, productName: String, quantity: Int, price: Double) async throws -> AddtoCartResp{
-        let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price)
-        let cart:AddtoCartResp = try await postRequest(endpoint: CartURL.addToCart.rawValue, input: body )
-        return cart
+        do {
+            let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price)
+            let cart:AddtoCartResp = try await postRequest(endpoint: CartURL.addToCart.rawValue, input: body )
+            
+            return cart
+        }
+        catch{
+                print(error)
+            throw error
+        }
+        
     }
 }

@@ -1,12 +1,5 @@
-//
-//  OrderModel.swift
-//  GMarketplace
-//
-//  Created by John Gambrell on 5/21/24.
-//
-
-import SwiftUI
-import Observation
+import Foundation
+//import Observation
 
 @Observable class Order {
     var items = [CartItem]()

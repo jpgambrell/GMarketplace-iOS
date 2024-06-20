@@ -2,13 +2,13 @@
 import SwiftUI
 
 struct CartView: View {
-    @Environment(CartModel.self) private var cart
+    @Environment(CartService.self) private var cartService
     
     var body: some View {
         
         List(){
             Section("Cart") {
-                ForEach(self.cart.items) {item in
+                ForEach(self.cartService.cart.items) {item in
                     VStack(alignment: .leading){
                         HStack(alignment: .center) {
                             Text(item.productName!)
