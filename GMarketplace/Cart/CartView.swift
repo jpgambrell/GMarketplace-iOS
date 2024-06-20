@@ -9,14 +9,15 @@ struct CartView: View {
         List(){
             Section("Cart") {
                 ForEach(self.cartService.cart.items) {item in
-                    VStack(alignment: .leading){
-                        HStack(alignment: .center) {
-                            Text(item.productName!)
-                            Spacer()
-                            Text("\(item.quantity!)")
-                            Text("\(item.price.formatAsCurrency())")
-                        }
-                    }
+                    CartCellView(cartItem: item)
+//                    VStack(alignment: .leading){
+//                        HStack(alignment: .center) {
+//                            Text(item.productName!)
+//                            Spacer()
+//                            Text("\(item.quantity!)")
+//                            Text("\(item.price.formatAsCurrency())")
+//                        }
+//                    }
                 }
             }
         }
@@ -53,5 +54,5 @@ struct CartView: View {
    
 
 #Preview {
-    CartView().environment(CartModel().createMockCart())
+    CartView().environment(CartService())
 }

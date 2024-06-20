@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 @Observable class CartModel {
     var id = ""
@@ -24,9 +24,9 @@ import Foundation
 //    
     func createMockCart() -> CartModel{
         var items = [CartItem]()
-        items.append(CartItem(id: 333, productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 63.33))
-        items.append(CartItem(id: 3334,productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45))
-        items.append(CartItem(id: 4444,productId: "333", productName: "XBox Bone", quantity: 1, price: 383.13))
+        items.append(CartItem(id: 333, productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 63.33, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$"))
+        items.append(CartItem(id: 3334,productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45, productImageURL: ""))
+        items.append(CartItem(id: 4444,productId: "333", productName: "XBox Bone", quantity: 1, price: 383.13, productImageURL: ""))
         self.items = items
         return self
     }
@@ -39,13 +39,14 @@ import Foundation
 //    var items = [CartItem]()
 //}
 
-struct CartItem: Codable, Hashable, Identifiable {
+struct CartItem: Codable, Equatable, Identifiable {
         let id : Int?
         let productId : String?
         let quantity : Int?
         let price : Double
         let createdDate : String?
         let productName : String?
+        let productImageURL: String?
 
         enum CodingKeys: String, CodingKey {
             case id = "id"
@@ -54,15 +55,17 @@ struct CartItem: Codable, Hashable, Identifiable {
             case price = "price"
             case createdDate = "created_dt"
             case productName = "product_name"
+            case productImageURL = "product_image_url"
         }
     
-    init(id: Int, productId: String, productName: String, quantity: Int, price: Double) {
+    init(id: Int, productId: String, productName: String, quantity: Int, price: Double, productImageURL: String) {
         self.id = id
         self.productId = productId
         self.productName = productName
         self.quantity = quantity
         self.price = price
         self.createdDate = ""
+        self.productImageURL = productImageURL
     }
 
         init(from decoder: Decoder) throws {
@@ -73,5 +76,6 @@ struct CartItem: Codable, Hashable, Identifiable {
             price = try values.decodeIfPresent(Double.self, forKey: .price) ?? 0.0
             createdDate = try values.decodeIfPresent(String.self, forKey: .createdDate)
             productName = try values.decodeIfPresent(String.self, forKey: .productName)
+            productImageURL = try values.decodeIfPresent(String.self, forKey: .productImageURL)
         }
 }

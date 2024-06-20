@@ -10,6 +10,7 @@ struct AddToCartBody: Codable {
     let product_name: String
     let quantity: Int
     let price: Double
+    let image: String
 }
 
 struct AddtoCartResp: Codable {
@@ -22,9 +23,9 @@ struct CartAPIManager: URLSessionTasks {
         let cartItems:[CartItem] = try await getRequestArray(endpoint: CartURL.getCart.rawValue)
         return cartItems
     }
-    func addToCart(productId: String, productName: String, quantity: Int, price: Double) async throws -> AddtoCartResp{
+    func addToCart(productId: String, productName: String, quantity: Int, price: Double, productImageURL: String) async throws -> AddtoCartResp{
         do {
-            let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price)
+            let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
             let cart:AddtoCartResp = try await postRequest(endpoint: CartURL.addToCart.rawValue, input: body )
             
             return cart
