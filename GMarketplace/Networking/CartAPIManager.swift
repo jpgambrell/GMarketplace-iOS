@@ -36,4 +36,17 @@ struct CartAPIManager: URLSessionTasks {
         }
         
     }
+    
+    func deleteFromCart(productId: String) async throws -> [CartItem]{
+        do {
+          //  let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
+            //let cart = try await postRequest(endpoint: CartURL.addToCart.rawValue, input: body )
+            
+            return [CartItem]()
+        }
+        catch{
+                print(error)
+            throw error
+        }
+    }
 }

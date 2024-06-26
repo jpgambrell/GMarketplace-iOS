@@ -15,9 +15,10 @@ struct ToastModifier: ViewModifier {
             .offset(y: 32)
         }.animation(.spring(), value: toast)
       )
-      .onChange(of: toast) { 
-        showToast()
+      .onChange(of: toast) { _, _ in
+          showToast()
       }
+
   }
   
   @ViewBuilder func mainToastView() -> some View {
@@ -35,7 +36,7 @@ struct ToastModifier: ViewModifier {
       //.transition(.move(edge: .top))
       //.transition(AnyTransition.opacity.animation(.linear))
       //.transition(AnyTransition.scale.animation(.linear))
-      //.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.1)))
+      .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.1)))
     }
   }
   

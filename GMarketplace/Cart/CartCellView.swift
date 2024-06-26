@@ -3,68 +3,77 @@ import SwiftUI
 
 struct CartCellView: View {
     @Environment(CartService.self) var cartService
-    @State var quantity = 0
+    @State var quantity: Int
     var item : CartItem
     init(cartItem: CartItem){
-        self.item = cartItem
+        item = cartItem
         quantity = cartItem.quantity ?? 0
     }
     var body: some View {
-        VStack{
-            
-            
+  
             HStack(alignment: .top) {
                 AsyncImage(url: URL(string: item.productImageURL ?? "")) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height:100)
+                        .frame(height:75)
+                        //.padding(1)
                 } placeholder: {
                     ProgressView()
                 }
-                Text((item.productName ?? "N/A"))
-                    .font(.title2)
-                    .padding(.top, 12)
-                Spacer()
+                
+                VStack(alignment: .leading){
+                    Text((item.productName ?? "N/A"))
+                        .font(.callout).bold()
+                        .lineLimit(2)
+                          .truncationMode(.tail)
+                        .padding(.top, 12)
+                        
+                    HStack{
+                        Button {
+                            if quantity > 0 {
+                                quantity = quantity - 1
+                                print("sub btn for: \(String(describing: item.productName))")
+                                //TODO update cart
+                            }
+                        } label: {
+                            Image("reduceStepper")
+                                .resizable()
+                                .scaledToFit()
+                                .colorMultiply(.white)
+                                .frame(width: 40, height: 40)
+                        }.buttonStyle(BorderlessButtonStyle())
+                        
+                        
+                        Text("\(quantity)")
+                            .font(.title2)
+                            .padding()
+                        Button {
+                            quantity = quantity + 1
+                            print("add btn for: \(String(describing: item.productName))")
+                            //TODO update cart
+                        } label: {
+                            Image("increaseStepper")
+                                .resizable()
+                                .scaledToFit()
+                                .colorMultiply(.white)
+                                .frame(width: 40, height: 40)
+                            
+                        }.buttonStyle(BorderlessButtonStyle())
+                        
+                    }.frame(width: 150)
+                }
+               // Spacer()
                 Text("\(item.price.formatAsCurrency())")
-                    .font(.title2)
+                    .font(.title3)
                     .padding(.top, 12)
             }.padding([.leading, .trailing], 20)
             
-            HStack{
-                Button {
-                    if quantity > 0 {
-                        quantity = quantity - 1
-                        //TODO update cart
-                    }
-                } label: {
-                    Image("reduceStepper")
-                        .resizable()
-                        .scaledToFit()
-                        .colorMultiply(.white)
-                    .frame(width: 40, height: 40)                }
-                
-                
-                Text("\(quantity)")
-                    .font(.title2)
-                    .padding()
-                Button {
-                    quantity = quantity + 1
-                    //TODO update cart
-                } label: {
-                    Image("increaseStepper")
-                        .resizable()
-                        .scaledToFit()
-                        .colorMultiply(.white)
-                        .frame(width: 40, height: 40)
-                    
-                }
-                
-            }
-        }
+
+        
     }
         }
 
 #Preview {
-    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One", quantity: 1, price: 32.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
+    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One with a kung fu grip and chucks", quantity: 1, price: 32.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
 }

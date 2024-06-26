@@ -17,4 +17,13 @@ class CartService {
             print(error)
         }
     }
+    func deleteFromCart() async throws {
+        do {
+            self.cart.items = try await cartAPIManager.deleteFromCart()
+        }
+        catch {
+            print(error)
+        }
+    }
+
 }
