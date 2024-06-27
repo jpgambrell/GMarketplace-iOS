@@ -50,7 +50,7 @@ extension URLSessionTasks {
             }
     }
     
-    func postRequest<Input: Codable, Output: Codable>(endpoint: String, input: Input) async throws -> Output {
+    func postRequest<Input: Codable, Output: Codable>(endpoint: String, input: Input = EmptyStruct()) async throws -> Output {
         // Step 1: Create the URL from the endpoint string
         guard let url = URL(string: endpoint) else {
             throw URLError(.badURL)
@@ -64,11 +64,13 @@ extension URLSessionTasks {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // Step 4: Encode the input struct to JSON and set the HTTP body
-        do {
-            let jsonData = try JSONEncoder().encode(input)
-            request.httpBody = jsonData
-        } catch {
-            throw error
+        if !(input is EmptyStruct) {
+            do {
+                let jsonData = try JSONEncoder().encode(input)
+                request.httpBody = jsonData
+            } catch {
+                throw error
+            }
         }
         
         // Step 5: Perform the request using URLSession and await the result
@@ -89,7 +91,7 @@ extension URLSessionTasks {
         }
     }
     
-    func postRequestArray<Input: Codable, Output: Codable>(endpoint: String, input: Input) async throws -> [Output] {
+    func postRequestArray<Input: Codable, Output: Codable>(endpoint: String, input: Input = EmptyStruct()) async throws -> [Output] {
         // Step 1: Create the URL from the endpoint string
         guard let url = URL(string: endpoint) else {
             throw URLError(.badURL)

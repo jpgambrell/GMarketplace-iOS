@@ -6,9 +6,7 @@ class CartService {
     var cart = CartModel()
     let cartAPIManager = CartAPIManager()
     
-//    public init(){
-//        
-//    }
+
     func getCart() async throws {
         do {
             self.cart.items = try await cartAPIManager.getCart()
@@ -17,9 +15,9 @@ class CartService {
             print(error)
         }
     }
-    func deleteFromCart() async throws {
+    func deleteFromCart(productId: String) async throws {
         do {
-            self.cart.items = try await cartAPIManager.deleteFromCart()
+            self.cart.items = try await cartAPIManager.deleteFromCart(productId)
         }
         catch {
             print(error)

@@ -34,15 +34,26 @@ struct CartCellView: View {
                             if quantity > 0 {
                                 quantity = quantity - 1
                                 print("sub btn for: \(String(describing: item.productName))")
-                                //TODO update cart
-                            }
+                                                        }
                         } label: {
-                            Image("reduceStepper")
+                                Image((quantity > 1) ?"reduceStepper" : "trashCan")
                                 .resizable()
                                 .scaledToFit()
                                 .colorMultiply(.white)
                                 .frame(width: 40, height: 40)
                         }.buttonStyle(BorderlessButtonStyle())
+                            .onChange(of: quantity) { _, newValue in
+                                if newValue == 0 {
+                                    Task{
+                                        do {
+                                            try await cartService.deleteFromCart(productId: item.productId!)
+                                        }
+                                        catch {
+                                            
+                                        }
+                                    }
+                                }
+                            }
                         
                         
                         Text("\(quantity)")
@@ -62,6 +73,7 @@ struct CartCellView: View {
                         }.buttonStyle(BorderlessButtonStyle())
                         
                     }.frame(width: 150)
+                        
                 }
                // Spacer()
                 Text("\(item.price.formatAsCurrency())")

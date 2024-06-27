@@ -4,6 +4,7 @@ import Foundation
 enum CartURL: String {
     case getCart = "http://localhost:3000/cart"
     case addToCart = "http://localhost:3000/addToCart"
+    case deleteFromCart = "http://localhost:3000/deleteFromCart"
 }
 struct AddToCartBody: Codable {
     let product_id : String
@@ -11,6 +12,9 @@ struct AddToCartBody: Codable {
     let quantity: Int
     let price: Double
     let image: String
+}
+struct EmptyStruct: Codable{
+   // var test: String = ""
 }
 
 struct AddtoCartResp: Codable {
@@ -23,6 +27,7 @@ struct CartAPIManager: URLSessionTasks {
         let cartItems:[CartItem] = try await getRequestArray(endpoint: CartURL.getCart.rawValue)
         return cartItems
     }
+    
     func addToCart(productId: String, productName: String, quantity: Int, price: Double, productImageURL: String) async throws -> AddtoCartResp{
         do {
             let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
@@ -37,12 +42,12 @@ struct CartAPIManager: URLSessionTasks {
         
     }
     
-    func deleteFromCart(productId: String) async throws -> [CartItem]{
+    func deleteFromCart(_ productId: String) async throws -> [CartItem]{
         do {
-          //  let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
-            //let cart = try await postRequest(endpoint: CartURL.addToCart.rawValue, input: body )
+            //TODO better URL composing with path params
+            let cart:[CartItem] = try await postRequestArray(endpoint: "\(CartURL.deleteFromCart.rawValue)/\(productId)")
             
-            return [CartItem]()
+            return cart
         }
         catch{
                 print(error)
