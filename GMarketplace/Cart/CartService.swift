@@ -23,5 +23,13 @@ class CartService {
             print(error)
         }
     }
+    func updateCart(productId: String, quantity: Int) async throws {
+        do {
+            self.cart.items = try await cartAPIManager.updateCart(productId: productId, quantity: quantity)
+        }
+        catch {
+            print(error)
+        }
+    }
 
 }

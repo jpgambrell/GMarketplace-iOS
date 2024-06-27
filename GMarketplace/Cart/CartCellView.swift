@@ -10,7 +10,6 @@ struct CartCellView: View {
         quantity = cartItem.quantity ?? 0
     }
     var body: some View {
-  
             HStack(alignment: .top) {
                 AsyncImage(url: URL(string: item.productImageURL ?? "")) { image in
                     image
@@ -33,8 +32,7 @@ struct CartCellView: View {
                         Button {
                             if quantity > 0 {
                                 quantity = quantity - 1
-                                print("sub btn for: \(String(describing: item.productName))")
-                                                        }
+                            }
                         } label: {
                                 Image((quantity > 1) ?"reduceStepper" : "trashCan")
                                 .resizable()
@@ -42,18 +40,7 @@ struct CartCellView: View {
                                 .colorMultiply(.white)
                                 .frame(width: 40, height: 40)
                         }.buttonStyle(BorderlessButtonStyle())
-                            .onChange(of: quantity) { _, newValue in
-                                if newValue == 0 {
-                                    Task{
-                                        do {
-                                            try await cartService.deleteFromCart(productId: item.productId!)
-                                        }
-                                        catch {
-                                            
-                                        }
-                                    }
-                                }
-                            }
+                            
                         
                         
                         Text("\(quantity)")
@@ -73,6 +60,21 @@ struct CartCellView: View {
                         }.buttonStyle(BorderlessButtonStyle())
                         
                     }.frame(width: 150)
+                        .onChange(of: quantity) { _, newValue in
+                                Task{
+                                    do {
+                                        if newValue == 0 {
+                                            try await cartService.deleteFromCart(productId: item.productId!)
+                                        }
+                                        else {
+                                            try await cartService.updateCart(productId: item.productId!, quantity: quantity)
+                                        }
+                                    }
+                                    catch {
+                                        throw(error)
+                                    }
+                                }
+                        }
                         
                 }
                // Spacer()
