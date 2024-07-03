@@ -44,7 +44,7 @@ struct CartItem: Codable, Equatable, Identifiable {
         let productId : String?
         let quantity : Int?
         let price : Double
-        let createdDate : String?
+        let updatedDate : String?
         let productName : String?
         let productImageURL: String?
 
@@ -53,7 +53,7 @@ struct CartItem: Codable, Equatable, Identifiable {
             case productId = "product_id"
             case quantity = "quantity"
             case price = "price"
-            case createdDate = "created_dt"
+            case updatedDate = "update_dt"
             case productName = "product_name"
             case productImageURL = "product_image_url"
         }
@@ -64,7 +64,7 @@ struct CartItem: Codable, Equatable, Identifiable {
         self.productName = productName
         self.quantity = quantity
         self.price = price
-        self.createdDate = ""
+        self.updatedDate = "2024-06-27 16:04:40.184926"
         self.productImageURL = productImageURL
     }
 
@@ -74,7 +74,7 @@ struct CartItem: Codable, Equatable, Identifiable {
             productId = try values.decodeIfPresent(String.self, forKey: .productId)
             quantity = try values.decodeIfPresent(Int.self, forKey: .quantity)
             price = try values.decodeIfPresent(Double.self, forKey: .price) ?? 0.0
-            createdDate = try values.decodeIfPresent(String.self, forKey: .createdDate)
+            updatedDate = try values.decodeIfPresent(String.self, forKey: .updatedDate)
             productName = try values.decodeIfPresent(String.self, forKey: .productName)
             productImageURL = try values.decodeIfPresent(String.self, forKey: .productImageURL)
         }

@@ -4,7 +4,7 @@ import SwiftUI
 struct ProductDetailsView: View {
     @Environment(CartService.self) private var cartService
     @Binding var navigationPath: NavigationPath
-    @State private var toast: Toast? = nil
+   // @State private var toast: Toast? = nil
     let product: CatalogModel
   //  let cartManager = CartAPIManager()
     var body: some View {
@@ -48,7 +48,7 @@ struct ProductDetailsView: View {
                         print("cart resp: \(res)")
                         
                         try await cartService.getCart()
-                        toast = Toast(style: .success, message: "Saved.")
+                       // toast = Toast(style: .success, message: "Saved.")
                     }
                     catch {
                         print(error)
@@ -57,7 +57,7 @@ struct ProductDetailsView: View {
                
                 
             }.padding(20)
-        } .toastView(toast: $toast)
+        }// .toastView(toast: $toast)
            
     }
 }

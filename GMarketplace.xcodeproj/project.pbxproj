@@ -16,12 +16,6 @@
 		018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626F2BF7D67D001BA1A4 /* TabBarView.swift */; };
 		0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */; };
 		0183CE4D2C0A505300BE13E6 /* URLSessionTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183CE4C2C0A505300BE13E6 /* URLSessionTasks.swift */; };
-		01B29FC72BFD3B06002581BF /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC12BFD3B06002581BF /* Toast.swift */; };
-		01B29FC82BFD3B06002581BF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC22BFD3B06002581BF /* ToastView.swift */; };
-		01B29FC92BFD3B06002581BF /* View_Glow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC32BFD3B06002581BF /* View_Glow.swift */; };
-		01B29FCA2BFD3B06002581BF /* View_toastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC42BFD3B06002581BF /* View_toastView.swift */; };
-		01B29FCB2BFD3B06002581BF /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC52BFD3B06002581BF /* ToastModifier.swift */; };
-		01B29FCC2BFD3B06002581BF /* ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B29FC62BFD3B06002581BF /* ToastStyle.swift */; };
 		01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */; };
 		01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DD2BF3BC2B00586122 /* CartView.swift */; };
 		01EF29E02BF3BC2C00586122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF29DF2BF3BC2C00586122 /* Assets.xcassets */; };
@@ -44,12 +38,6 @@
 		0183626F2BF7D67D001BA1A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPIManager.swift; sourceTree = "<group>"; };
 		0183CE4C2C0A505300BE13E6 /* URLSessionTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTasks.swift; sourceTree = "<group>"; };
-		01B29FC12BFD3B06002581BF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		01B29FC22BFD3B06002581BF /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		01B29FC32BFD3B06002581BF /* View_Glow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_Glow.swift; sourceTree = "<group>"; };
-		01B29FC42BFD3B06002581BF /* View_toastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_toastView.swift; sourceTree = "<group>"; };
-		01B29FC52BFD3B06002581BF /* ToastModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
-		01B29FC62BFD3B06002581BF /* ToastStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastStyle.swift; sourceTree = "<group>"; };
 		01EF29D82BF3BC2B00586122 /* GMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMarketplaceApp.swift; sourceTree = "<group>"; };
 		01EF29DD2BF3BC2B00586122 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
@@ -74,19 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010BF0182BFD2849005FFD67 /* ToastView */ = {
-			isa = PBXGroup;
-			children = (
-				01B29FC12BFD3B06002581BF /* Toast.swift */,
-				01B29FC52BFD3B06002581BF /* ToastModifier.swift */,
-				01B29FC62BFD3B06002581BF /* ToastStyle.swift */,
-				01B29FC22BFD3B06002581BF /* ToastView.swift */,
-				01B29FC32BFD3B06002581BF /* View_Glow.swift */,
-				01B29FC42BFD3B06002581BF /* View_toastView.swift */,
-			);
-			path = ToastView;
-			sourceTree = "<group>";
-		};
 		0183626C2BF7CE9F001BA1A4 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +148,6 @@
 				0140B13B2BF5536400B86301 /* ProductGridView.swift */,
 				01EF29F52BF4101900586122 /* HeaderView.swift */,
 				01EF29F72BF530C100586122 /* SectionHeaderView.swift */,
-				010BF0182BFD2849005FFD67 /* ToastView */,
 			);
 			path = AccessoryViews;
 			sourceTree = "<group>";
@@ -248,29 +222,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01B29FC72BFD3B06002581BF /* Toast.swift in Sources */,
 				0183CE4D2C0A505300BE13E6 /* URLSessionTasks.swift in Sources */,
 				01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */,
 				018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */,
 				01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */,
-				01B29FC92BFD3B06002581BF /* View_Glow.swift in Sources */,
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
 				0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */,
 				0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */,
-				01B29FCC2BFD3B06002581BF /* ToastStyle.swift in Sources */,
 				0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */,
 				0107B96C2C249A9F008A6462 /* CartViewModel.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */,
-				01B29FCB2BFD3B06002581BF /* ToastModifier.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
-				01B29FC82BFD3B06002581BF /* ToastView.swift in Sources */,
 				0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,
 				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,
-				01B29FCA2BFD3B06002581BF /* View_toastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,48 +10,21 @@ struct CartView: View {
             Section("Cart") {
                 ForEach(self.cartService.cart.items) {item in
                     CartCellView(cartItem: item)
-//                    VStack(alignment: .leading){
-//                        HStack(alignment: .center) {
-//                            Text(item.productName!)
-//                            Spacer()
-//                            Text("\(item.quantity!)")
-//                            Text("\(item.price.formatAsCurrency())")
-//                        }
-//                    }
+                }
+            }
+        }.refreshable {
+            Task{
+                do {
+                    try await cartService.getCart()
+                }
+                catch{
+                    print(error)
                 }
             }
         }
-        
     }
 }
-        
-        
-        //          ScrollView{
-        //               Grid(alignment: .leadingFirstTextBaseline,
-        //                    horizontalSpacing: 5,
-        //                     verticalSpacing: 20){
-        //                    GridRow {
-        //                        Text("Item")
-        //                        Text("Quantity")
-        //                        Text("Price")
-        //                    }
-        //                    .font(.title2)
-        //                    Divider()
-        //                    ForEach(self.cart.items, id: \.self){ item in
-        //                        GridRow{
-        //                            Text("\(String(describing: item.productName!))")
-        //                            Text("\(item.quantity!)").gridColumnAlignment(.center)
-        //                            Text("\(item.price.formatAsCurrency())")
-        //                                .gridColumnAlignment(.center)
-        //                        }
-        //                        .font(.title3)
-        //                    }
-        //                }
-        //               .padding()
-        //           }
-        //
-        
-   
+  
 
 #Preview {
     CartView().environment(CartService())
