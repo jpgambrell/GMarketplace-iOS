@@ -88,6 +88,6 @@ struct CartCellView: View {
     }
         }
 
-#Preview {
-    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One with a kung fu grip and chucks", quantity: 1, price: 32.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
-}
+//#Preview {
+//    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One with a kung fu grip and chucks", quantity: 1, price: 32.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
+//}

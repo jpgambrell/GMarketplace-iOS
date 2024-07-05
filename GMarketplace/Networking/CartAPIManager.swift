@@ -30,11 +30,11 @@ struct AddtoCartResp: Codable {
 }
 
 struct CartAPIManager: URLSessionTasks {
-    func getCart() async throws -> [CartItem] {
-        let cartItems:[CartItem] = try await getRequestArray(endpoint: CartURL.getCart.rawValue)
+    func getCart() async throws -> CartModel {
+        let cartItems:CartModel = try await getRequest(endpoint: CartURL.getCart.rawValue)
         return cartItems
     }
-    
+    //TODO: fix insert to include cart id
     func addToCart(productId: String, productName: String, quantity: Int, price: Double, productImageURL: String) async throws -> AddtoCartResp{
         do {
             let body = AddToCartBody(product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
@@ -48,10 +48,10 @@ struct CartAPIManager: URLSessionTasks {
         }
     }
     
-    func updateCart(productId: String, quantity: Int) async throws -> [CartItem]{
+    func updateCart(productId: String, quantity: Int) async throws -> CartModel{
         do {
             let body = UpdateCartBody(product_id: productId,  quantity: quantity)
-            let cart:[CartItem] = try await postRequestArray(endpoint: CartURL.updateCart.rawValue, input: body)
+            let cart:CartModel = try await postRequest(endpoint: CartURL.updateCart.rawValue, input: body)
             
             return cart
         }
@@ -61,10 +61,10 @@ struct CartAPIManager: URLSessionTasks {
         }
     }
     
-    func deleteFromCart(_ productId: String) async throws -> [CartItem]{
+    func deleteFromCart(_ productId: String) async throws -> CartModel{
         do {
             //TODO better URL composing with path params
-            let cart:[CartItem] = try await postRequestArray(endpoint: "\(CartURL.deleteFromCart.rawValue)/\(productId)")
+            let cart:CartModel = try await postRequest(endpoint: "\(CartURL.deleteFromCart.rawValue)/\(productId)")
             
             return cart
         }

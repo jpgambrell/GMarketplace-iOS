@@ -8,7 +8,7 @@ struct CartView: View {
         
         List(){
             Section("Cart") {
-                ForEach(self.cartService.cart.items) {item in
+                ForEach((self.cartService.cart?.items)!) {item in
                     CartCellView(cartItem: item)
                 }
             }

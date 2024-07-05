@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B9692C221A67008A6462 /* CartCellView.swift */; };
-		0107B96C2C249A9F008A6462 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B96B2C249A9F008A6462 /* CartViewModel.swift */; };
 		0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B96D2C24A5BB008A6462 /* CartService.swift */; };
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
 		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		0107B9692C221A67008A6462 /* CartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellView.swift; sourceTree = "<group>"; };
-		0107B96B2C249A9F008A6462 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		0107B96D2C24A5BB008A6462 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
 				0175CC962BFCF152006324D3 /* OrderModel.swift */,
 				0107B9692C221A67008A6462 /* CartCellView.swift */,
-				0107B96B2C249A9F008A6462 /* CartViewModel.swift */,
 				0107B96D2C24A5BB008A6462 /* CartService.swift */,
 			);
 			path = Cart;
@@ -230,7 +227,6 @@
 				0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */,
 				0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */,
 				0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */,
-				0107B96C2C249A9F008A6462 /* CartViewModel.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,

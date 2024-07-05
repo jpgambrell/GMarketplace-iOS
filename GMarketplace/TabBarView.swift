@@ -22,7 +22,6 @@ struct TabBarView: View {
         .task {
             do {
                 try await cartService.getCart()
-                print("got cart")
             }
             catch {
                 
@@ -31,6 +30,6 @@ struct TabBarView: View {
     }
 }
 
-#Preview {
-    TabBarView().environment(CartModel())
-}
+//#Preview {
+//    TabBarView().environment(CartModel())
+//}
