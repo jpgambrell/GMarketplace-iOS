@@ -63,11 +63,12 @@ struct CartCellView: View {
                         .onChange(of: quantity) { _, newValue in
                                 Task{
                                     do {
+                                        guard let cartId = cartService.cart?.id else {return}
                                         if newValue == 0 {
-                                            try await cartService.deleteFromCart(productId: item.productId!)
+                                            try await cartService.deleteFromCart(cartId: cartId,productId: item.productId!)
                                         }
                                         else {
-                                            try await cartService.updateCart(productId: item.productId!, quantity: quantity)
+                                            try await cartService.updateCart(cartId: cartId, productId: item.productId!, quantity: quantity)
                                         }
                                     }
                                     catch {

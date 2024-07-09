@@ -44,10 +44,11 @@ struct ProductDetailsView: View {
 
                 Task {
                     do {
-                        let res: AddtoCartResp =  try await cartService.cartAPIManager.addToCart(productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
+                        guard let cartId = cartService.cart?.id else {return}
+                        let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartId, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
                         print("cart resp: \(res)")
-                        
-                        try await cartService.getCart()
+                        cartService.cart = res 
+                       // try await cartService.getCart()
                        // toast = Toast(style: .success, message: "Saved.")
                     }
                     catch {

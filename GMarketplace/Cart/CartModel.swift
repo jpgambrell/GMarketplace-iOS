@@ -1,7 +1,7 @@
 import UIKit
 @Observable
 class CartModel : Codable {
-    let id : Int?
+    let id : Int
     let userId : Int?
     let items : [CartItem]?
     var total: Double {
@@ -22,7 +22,7 @@ class CartModel : Codable {
 
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
         userId = try values.decodeIfPresent(Int.self, forKey: .userId)
         items = try values.decodeIfPresent([CartItem].self, forKey: .items)
     }
@@ -30,7 +30,7 @@ class CartModel : Codable {
 }
 
 struct CartItem : Codable, Identifiable {
-    let id : Int?
+    let id : Int
     let productId : String?
     let productName : String?
     let quantity : Int?
@@ -49,7 +49,7 @@ struct CartItem : Codable, Identifiable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
         productId = try values.decodeIfPresent(String.self, forKey: .productId)
         productName = try values.decodeIfPresent(String.self, forKey: .productName)
         quantity = try values.decodeIfPresent(Int.self, forKey: .quantity)

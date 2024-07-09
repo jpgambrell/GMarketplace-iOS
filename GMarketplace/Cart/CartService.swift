@@ -16,17 +16,17 @@ class CartService {
             print(error)
         }
     }
-    func deleteFromCart(productId: String) async throws {
+    func deleteFromCart(cartId: Int, productId: String) async throws {
         do {
-            self.cart = try await cartAPIManager.deleteFromCart(productId)
+            self.cart = try await cartAPIManager.deleteFromCart(cartId: cartId, productId: productId)
         }
         catch {
             print(error)
         }
     }
-    func updateCart(productId: String, quantity: Int) async throws {
+    func updateCart(cartId: Int, productId: String, quantity: Int) async throws {
         do {
-            self.cart = try await cartAPIManager.updateCart(productId: productId, quantity: quantity)
+            self.cart = try await cartAPIManager.updateCart(cartId: cartId, productId: productId, quantity: quantity)
         }
         catch {
             print(error)
