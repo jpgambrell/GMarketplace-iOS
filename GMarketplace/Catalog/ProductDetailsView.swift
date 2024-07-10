@@ -44,8 +44,8 @@ struct ProductDetailsView: View {
 
                 Task {
                     do {
-                        guard let cartId = cartService.cart?.id else {return}
-                        let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartId, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
+                       // guard let cartId = cartService.cart?.id else {return}
+                        let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartService.cart.id, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
                         print("cart resp: \(res)")
                         cartService.cart = res 
                        // try await cartService.getCart()
@@ -63,20 +63,20 @@ struct ProductDetailsView: View {
     }
 }
 
-//#Preview {
-//    struct Preview: View {
-//            @State var navigationPath = NavigationPath()
-//            var body: some View {
-//                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environment(CartModel()).task{
-//                    
-//                }
-//            }
-//        }
-//    func mockProduct() -> CatalogModel {
-//        return CatalogModel(average_rating: 3.7, sub_category: "Mens", category: "Clothing", images: ["https://media.gamestop.com/i/gamestop/11143293/Honu-Turtle-Hawaiian-Islands-Word-Art-Womens-Premium-Blend-T-Shirt?$pdp2x$"], brand: "Gap", specs: "", price: 20.40, description: "The Show is back! MLB The Show brings you the best of baseball. Play America's pastime your way, with new game modes, expanded team building and player customization, and an extensive personalized RPG experience. Create your own player and rise through the MLB ranks or play against others as baseball's greatest stars and legends. Fierce online competition*, exciting RPG action, lightning fast gameplay‚Äì‚ÄìThe Show 19 has it all. ", id: "32424", name: "Cool Shirt", sku: "32424", availability: "IN STOCK")
-//    }
-//
-//    return Preview().environment(CartService())
-//
-//    
-//}
+#Preview {
+    struct Preview: View {
+            @State var navigationPath = NavigationPath()
+            var body: some View {
+                ProductDetailsView(navigationPath: $navigationPath, product: mockProduct()).environment(CartModel()).task{
+                    
+                }
+            }
+        }
+    func mockProduct() -> CatalogModel {
+        return CatalogModel(average_rating: 3.7, sub_category: "Mens", category: "Clothing", images: ["https://media.gamestop.com/i/gamestop/11143293/Honu-Turtle-Hawaiian-Islands-Word-Art-Womens-Premium-Blend-T-Shirt?$pdp2x$"], brand: "Gap", specs: "", price: 20.40, description: "The Show is back! MLB The Show brings you the best of baseball. Play America's pastime your way, with new game modes, expanded team building and player customization, and an extensive personalized RPG experience. Create your own player and rise through the MLB ranks or play against others as baseball's greatest stars and legends. Fierce online competition*, exciting RPG action, lightning fast gameplay‚Äì‚ÄìThe Show 19 has it all. ", id: "32424", name: "Cool Shirt", sku: "32424", availability: "IN STOCK")
+    }
+
+    return Preview().environment(CartService())
+
+    
+}

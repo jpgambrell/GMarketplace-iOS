@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B9692C221A67008A6462 /* CartCellView.swift */; };
 		0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B96D2C24A5BB008A6462 /* CartService.swift */; };
+		0107B9712C3DEEF1008A6462 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9702C3DEEF1008A6462 /* Stripe */; };
+		0107B9732C3DEEF1008A6462 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9722C3DEEF1008A6462 /* StripeApplePay */; };
+		0107B9752C3DEEF1008A6462 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9742C3DEEF1008A6462 /* StripeCardScan */; };
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
 		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
 		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
@@ -30,6 +33,7 @@
 /* Begin PBXFileReference section */
 		0107B9692C221A67008A6462 /* CartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellView.swift; sourceTree = "<group>"; };
 		0107B96D2C24A5BB008A6462 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		0107B9762C3F0E19008A6462 /* GMarketplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GMarketplace.entitlements; sourceTree = "<group>"; };
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -54,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0107B9752C3DEEF1008A6462 /* StripeCardScan in Frameworks */,
+				0107B9712C3DEEF1008A6462 /* Stripe in Frameworks */,
+				0107B9732C3DEEF1008A6462 /* StripeApplePay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +98,7 @@
 		01EF29DA2BF3BC2B00586122 /* GMarketplace */ = {
 			isa = PBXGroup;
 			children = (
+				0107B9762C3F0E19008A6462 /* GMarketplace.entitlements */,
 				0183626C2BF7CE9F001BA1A4 /* Cart */,
 				01EF29F42BF4100500586122 /* AccessoryViews */,
 				01EF29EA2BF3BCAC00586122 /* Catalog */,
@@ -165,6 +173,11 @@
 			dependencies = (
 			);
 			name = GMarketplace;
+			packageProductDependencies = (
+				0107B9702C3DEEF1008A6462 /* Stripe */,
+				0107B9722C3DEEF1008A6462 /* StripeApplePay */,
+				0107B9742C3DEEF1008A6462 /* StripeCardScan */,
+			);
 			productName = GMarketplace;
 			productReference = 01EF29D82BF3BC2B00586122 /* GMarketplace.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 01EF29CF2BF3BC2B00586122;
+			packageReferences = (
+				0107B96F2C3DEEF1008A6462 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+			);
 			productRefGroup = 01EF29D92BF3BC2B00586122 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,6 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GMarketplace/GMarketplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GMarketplace/Preview Content\"";
@@ -394,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GMarketplace/GMarketplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GMarketplace/Preview Content\"";
@@ -440,6 +458,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0107B96F2C3DEEF1008A6462 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.28.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0107B9702C3DEEF1008A6462 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0107B96F2C3DEEF1008A6462 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		0107B9722C3DEEF1008A6462 /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0107B96F2C3DEEF1008A6462 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeApplePay;
+		};
+		0107B9742C3DEEF1008A6462 /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0107B96F2C3DEEF1008A6462 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeCardScan;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 01EF29D02BF3BC2B00586122 /* Project object */;
 }

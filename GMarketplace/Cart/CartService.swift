@@ -3,7 +3,7 @@ import Foundation
 import SwiftUI
 @Observable
 class CartService {
-    var cart : CartModel?
+    var cart : CartModel = CartModel()
     let cartAPIManager = CartAPIManager()
     
 

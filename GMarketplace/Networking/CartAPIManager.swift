@@ -36,7 +36,7 @@ struct CartAPIManager: URLSessionTasks {
         let cartItems:CartModel = try await getRequest(endpoint: CartURL.getCart.rawValue)
         return cartItems
     }
-    //TODO: fix insert to include cart id
+    
     func addToCart(cartId: Int, productId: String, productName: String, quantity: Int, price: Double, productImageURL: String) async throws -> CartModel{
         do {
             let body = AddToCartBody(cart_id: cartId, product_id: productId, product_name: productName, quantity: quantity, price: price, image: productImageURL)
@@ -67,7 +67,6 @@ struct CartAPIManager: URLSessionTasks {
         do {
             //TODO better URL composing with path params
             let cart:CartModel = try await postRequest(endpoint: "\(CartURL.deleteFromCart.rawValue)/\(cartId)/\(productId)")
-            
             return cart
         }
         catch{
