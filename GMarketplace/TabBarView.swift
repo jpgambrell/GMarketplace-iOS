@@ -21,7 +21,7 @@ struct TabBarView: View {
         }
         .task {
             do {
-                try await cartService.getCart()
+                try await cartService.getCart(cartBy: .user_id, id: 1)
             }
             catch {
                 
@@ -30,6 +30,6 @@ struct TabBarView: View {
     }
 }
 
-//#Preview {
-//    TabBarView().environment(CartModel())
-//}
+#Preview {
+    TabBarView().environment(CartService())
+}

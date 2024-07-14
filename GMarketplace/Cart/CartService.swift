@@ -7,10 +7,9 @@ class CartService {
     let cartAPIManager = CartAPIManager()
     
 
-    func getCart() async throws {
+    func getCart(cartBy: GetCartBy, id: Int) async throws {
         do {
-           // self.cart.items = try await cartAPIManager.getCart()
-            self.cart = try await cartAPIManager.getCart()
+            self.cart = try await cartAPIManager.getCart(cartBy: cartBy, id: id)
         }
         catch {
             print(error)
@@ -27,6 +26,14 @@ class CartService {
     func updateCart(cartId: Int, productId: String, quantity: Int) async throws {
         do {
             self.cart = try await cartAPIManager.updateCart(cartId: cartId, productId: productId, quantity: quantity)
+        }
+        catch {
+            print(error)
+        }
+    }
+    func submitOrder(cartId: Int) async throws {
+        do {
+            self.cart = try await cartAPIManager.submitOrder(cartId: cartId)
         }
         catch {
             print(error)

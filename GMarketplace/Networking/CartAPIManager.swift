@@ -6,6 +6,7 @@ enum CartURL: String {
     case addToCart = "http://localhost:3000/addToCart"
     case updateCart =  "http://localhost:3000/updateCart"
     case deleteFromCart = "http://localhost:3000/deleteFromCart"
+    case submitOrder = "http://localhost:3000/checkout"
 }
 struct AddToCartBody: Codable {
     let cart_id: Int
@@ -23,17 +24,16 @@ struct UpdateCartBody: Codable {
 }
 
 struct EmptyStruct: Codable{
-   // var test: String = ""
 }
 
-struct AddtoCartResp: Codable {
-    let rowCount: Int
-    let command: String
+enum GetCartBy {
+    case user_id
+    case id
 }
 
 struct CartAPIManager: URLSessionTasks {
-    func getCart() async throws -> CartModel {
-        let cartItems:CartModel = try await getRequest(endpoint: CartURL.getCart.rawValue)
+    func getCart(cartBy: GetCartBy, id: Int) async throws -> CartModel {
+        let cartItems:CartModel = try await getRequest(endpoint: "\(CartURL.getCart.rawValue)/\(cartBy)/\(id)")
         return cartItems
     }
     
@@ -75,5 +75,16 @@ struct CartAPIManager: URLSessionTasks {
         }
     }
     
+    func submitOrder(cartId: Int) async throws -> CartModel {
+        do {
+            //TODO better URL composing with path params
+            let cart:CartModel = try await postRequest(endpoint: "\(CartURL.submitOrder.rawValue)/\(cartId)")
+            return cart
+        }
+        catch{
+         print(error)
+            throw error
+        }
+    }
   
 }
