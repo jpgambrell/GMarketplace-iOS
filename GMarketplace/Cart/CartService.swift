@@ -33,7 +33,7 @@ class CartService {
     }
     func submitOrder(cartId: Int) async throws {
         do {
-            self.cart = try await cartAPIManager.submitOrder(cartId: cartId)
+            self.cart = try await cartAPIManager.submitOrder(userId: 1,cartId: cartId)
         }
         catch {
             print(error)

@@ -75,10 +75,10 @@ struct CartAPIManager: URLSessionTasks {
         }
     }
     
-    func submitOrder(cartId: Int) async throws -> CartModel {
+    func submitOrder(userId: Int, cartId: Int) async throws -> CartModel {
         do {
             //TODO better URL composing with path params
-            let cart:CartModel = try await postRequest(endpoint: "\(CartURL.submitOrder.rawValue)/\(cartId)")
+            let cart:CartModel = try await postRequest(endpoint: "\(CartURL.submitOrder.rawValue)/\(userId)/\(cartId)")
             return cart
         }
         catch{
