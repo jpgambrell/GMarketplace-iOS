@@ -4,9 +4,7 @@ import SwiftUI
 struct ProductDetailsView: View {
     @Environment(CartService.self) private var cartService
     @Binding var navigationPath: NavigationPath
-   // @State private var toast: Toast? = nil
     let product: CatalogModel
-  //  let cartManager = CartAPIManager()
     var body: some View {
         VStack{
             HStack(alignment: .top){

@@ -2,7 +2,7 @@ import UIKit
 @Observable
 class CartModel : Codable {
     let id : Int
-    let userId : Int?
+    let userId : Int
     let items : [CartItem]
     var total: Double {
         if items.count > 0 {
@@ -22,7 +22,7 @@ class CartModel : Codable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
-        userId = try values.decodeIfPresent(Int.self, forKey: .userId)
+        userId = try values.decodeIfPresent(Int.self, forKey: .userId) ?? 0
         items = try values.decodeIfPresent([CartItem].self, forKey: .items) ?? [CartItem]()
     }
     
@@ -45,11 +45,11 @@ class CartModel : Codable {
 
 struct CartItem : Codable, Identifiable {
     let id : Int
-    let productId : String?
-    let productName : String?
-    let quantity : Int?
+    let productId : String
+    let productName : String
+    let quantity : Int
     let price : Double
-    let productImageURL : String?
+    let productImageURL : String
 
     enum CodingKeys: String, CodingKey {
 
@@ -64,11 +64,11 @@ struct CartItem : Codable, Identifiable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
-        productId = try values.decodeIfPresent(String.self, forKey: .productId)
-        productName = try values.decodeIfPresent(String.self, forKey: .productName)
-        quantity = try values.decodeIfPresent(Int.self, forKey: .quantity)
+        productId = try values.decodeIfPresent(String.self, forKey: .productId) ?? ""
+        productName = try values.decodeIfPresent(String.self, forKey: .productName) ?? ""
+        quantity = try values.decodeIfPresent(Int.self, forKey: .quantity) ?? 0
         price = try values.decodeIfPresent(Double.self, forKey: .price) ?? 0
-        productImageURL = try values.decodeIfPresent(String.self, forKey: .productImageURL)
+        productImageURL = try values.decodeIfPresent(String.self, forKey: .productImageURL) ?? ""
     }
     
     init(id: Int, productId: String, productName: String, quantity:Int, price: Double, productImageURL: String) {

@@ -7,11 +7,11 @@ struct CartCellView: View {
     var item : CartItem
     init(cartItem: CartItem){
         item = cartItem
-        quantity = cartItem.quantity ?? 0
+        quantity = cartItem.quantity 
     }
     var body: some View {
             HStack(alignment: .top) {
-                AsyncImage(url: URL(string: item.productImageURL ?? "")) { image in
+                AsyncImage(url: URL(string: item.productImageURL)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -22,7 +22,7 @@ struct CartCellView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    Text((item.productName ?? "N/A"))
+                    Text((item.productName))
                         .font(.callout).bold()
                         .lineLimit(2)
                           .truncationMode(.tail)
@@ -65,10 +65,10 @@ struct CartCellView: View {
                                     do {
                                        // guard let cartId = cartService.cart?.id else {return}
                                         if newValue == 0 {
-                                            try await cartService.deleteFromCart(cartId: cartService.cart.id,productId: item.productId!)
+                                            try await cartService.deleteFromCart(cartId: cartService.cart.id,productId: item.productId)
                                         }
                                         else {
-                                            try await cartService.updateCart(cartId: cartService.cart.id, productId: item.productId!, quantity: quantity)
+                                            try await cartService.updateCart(cartId: cartService.cart.id, productId: item.productId, quantity: quantity)
                                         }
                                     }
                                     catch {

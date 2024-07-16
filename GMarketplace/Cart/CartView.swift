@@ -4,8 +4,13 @@ import SwiftUI
 struct CartView: View {
     @Environment(CartService.self) private var cartService
     @State private var showCheckoutBtn: Bool = false
+    @State private var showCheckoutView: Bool = false
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        VStack{
+       
+        NavigationStack(path: $path){
+            HeaderView(headerViewState: .full, path: $path)
             List(){
                 Section("Cart") {
                     ForEach(self.cartService.cart.items) {item in
@@ -13,12 +18,25 @@ struct CartView: View {
                     }
                 }
             }
+            .navigationDestination(for: OrderSubmitModel.self) { order in
+                VStack{
+                    HeaderView(headerViewState: .detail, path: $path)
+                    Spacer()
+                    Text("Your cart status is\(order.status)")
+                }
+            }
+            .sheet(isPresented: $showCheckoutView, content: {
+                CheckoutView(order: OrderSubmitModel(cart: cartService.cart))
+            })
             .overlay(alignment: .bottom) {
                 if showCheckoutBtn {
                     Button(action: {
-                        Task{
-                            try await cartService.submitOrder(cartId: cartService.cart.id)
-                        }
+//                        let order = OrderSubmitModel(items: cartService.cart.items, subTotal: cartService.cart.total, user_id: 1, paymentMethod: "", cartId: cartService.cart.id)
+//                        //path.append(order)
+                        showCheckoutView = true
+//                        Task{
+//                            try await cartService.submitOrder(cartId: cartService.cart.id)
+//                        }
                         //print("item count: \(String(describing: ))")
                     }, label: {
                         Text("Checkout")

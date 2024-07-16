@@ -12,8 +12,10 @@
 		0107B9712C3DEEF1008A6462 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9702C3DEEF1008A6462 /* Stripe */; };
 		0107B9732C3DEEF1008A6462 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9722C3DEEF1008A6462 /* StripeApplePay */; };
 		0107B9752C3DEEF1008A6462 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 0107B9742C3DEEF1008A6462 /* StripeCardScan */; };
+		0107B9792C46BDA8008A6462 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B9782C46BDA8008A6462 /* CheckoutView.swift */; };
+		0107B97B2C46BFE0008A6462 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B97A2C46BFE0008A6462 /* OrderModel.swift */; };
+		0107B97D2C46DB44008A6462 /* OrderItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107B97C2C46DB44008A6462 /* OrderItemCellView.swift */; };
 		0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B13B2BF5536400B86301 /* ProductGridView.swift */; };
-		0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175CC962BFCF152006324D3 /* OrderModel.swift */; };
 		0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626D2BF7CEC6001BA1A4 /* CartModel.swift */; };
 		018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626F2BF7D67D001BA1A4 /* TabBarView.swift */; };
 		0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */; };
@@ -34,8 +36,10 @@
 		0107B9692C221A67008A6462 /* CartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellView.swift; sourceTree = "<group>"; };
 		0107B96D2C24A5BB008A6462 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		0107B9762C3F0E19008A6462 /* GMarketplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GMarketplace.entitlements; sourceTree = "<group>"; };
+		0107B9782C46BDA8008A6462 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		0107B97A2C46BFE0008A6462 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		0107B97C2C46DB44008A6462 /* OrderItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemCellView.swift; sourceTree = "<group>"; };
 		0140B13B2BF5536400B86301 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
-		0175CC962BFCF152006324D3 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		0183626D2BF7CEC6001BA1A4 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		0183626F2BF7D67D001BA1A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPIManager.swift; sourceTree = "<group>"; };
@@ -67,12 +71,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0107B9772C46BD41008A6462 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				0107B9782C46BDA8008A6462 /* CheckoutView.swift */,
+				0107B97A2C46BFE0008A6462 /* OrderModel.swift */,
+				0107B97C2C46DB44008A6462 /* OrderItemCellView.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
 		0183626C2BF7CE9F001BA1A4 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
 				0183626D2BF7CEC6001BA1A4 /* CartModel.swift */,
 				01EF29DD2BF3BC2B00586122 /* CartView.swift */,
-				0175CC962BFCF152006324D3 /* OrderModel.swift */,
 				0107B9692C221A67008A6462 /* CartCellView.swift */,
 				0107B96D2C24A5BB008A6462 /* CartService.swift */,
 			);
@@ -99,13 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				0107B9762C3F0E19008A6462 /* GMarketplace.entitlements */,
-				0183626C2BF7CE9F001BA1A4 /* Cart */,
 				01EF29F42BF4100500586122 /* AccessoryViews */,
 				01EF29EA2BF3BCAC00586122 /* Catalog */,
+				0183626C2BF7CE9F001BA1A4 /* Cart */,
+				0107B9772C46BD41008A6462 /* Checkout */,
+				01EF29F32BF4094D00586122 /* Homepage */,
 				01EF29E92BF3BC5400586122 /* Networking */,
 				01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */,
 				0183626F2BF7D67D001BA1A4 /* TabBarView.swift */,
-				01EF29F32BF4094D00586122 /* Homepage */,
 				01EF29DF2BF3BC2C00586122 /* Assets.xcassets */,
 				01EF29E12BF3BC2C00586122 /* Preview Content */,
 			);
@@ -239,17 +253,19 @@
 				01EF29EC2BF3BD0900586122 /* CatalogModel.swift in Sources */,
 				018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */,
 				01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */,
+				0107B9792C46BDA8008A6462 /* CheckoutView.swift in Sources */,
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
-				0175CC972BFCF152006324D3 /* OrderModel.swift in Sources */,
 				0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */,
 				0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
+				0107B97B2C46BFE0008A6462 /* OrderModel.swift in Sources */,
 				0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */,
 				01EF29EE2BF3BDC500586122 /* CatalogAPIManager.swift in Sources */,
 				0183626E2BF7CEC6001BA1A4 /* CartModel.swift in Sources */,
 				01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */,
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,
+				0107B97D2C46DB44008A6462 /* OrderItemCellView.swift in Sources */,
 				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
