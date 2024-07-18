@@ -12,13 +12,13 @@ struct OrderItemCellView: View {
     var body: some View {
        
         VStack(alignment: .leading) {
-            HStack(alignment: .center, spacing: 10) {
+            HStack(alignment: .top, spacing: 0) {
                 AsyncImage(url: URL(string: item.productImageURL)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height:50)
-                    //.padding(10)
+                        .frame(width: 50, height:50)
+                    //.padding(5)
                 } placeholder: {
                     ProgressView()
                 }
@@ -26,24 +26,20 @@ struct OrderItemCellView: View {
                 Text((item.productName))
                     .font(.subheadline)//.bold()
                     .lineLimit(3)
-                   // .frame(width: .infinity)
                     .truncationMode(.tail)
-                   // .padding()
+                    .padding(.leading,5)
                 Spacer()
                 Text("Qty: \(item.quantity)")
                     .font(.subheadline)
-                    .padding(1)
+                   // .padding(1)
                 
                 // Spacer()
                 Text("\(item.price.formatAsCurrency())")
                     .font(.subheadline)
-                    .padding(3)
+                    .padding(.leading, 3)
                 
             }
-        }//.background(Color.gray.ignoresSafeArea().opacity(0.3))
-            //.frame(width: .infinity)
-            //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-            //.padding(10)
+        }
     }
 }
 

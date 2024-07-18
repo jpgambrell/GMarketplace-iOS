@@ -4,7 +4,7 @@ class CartModel : Codable {
     let id : Int
     let userId : Int
     let items : [CartItem]
-    var total: Double {
+    var subTotal: Double {
         if items.count > 0 {
                 return items.reduce(0) { $0 + $1.price }
             } else {
@@ -29,13 +29,12 @@ class CartModel : Codable {
     init(id: Int = 99, userId: Int = 99, items: [CartItem] = [CartItem]()){
         self.id = id
         self.userId = userId
+        var items = [CartItem]()
+        items.append(CartItem(id: 333, productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 363.33, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$"))
         
-//        var items = [CartItem]()
-//       items.append(CartItem(id: 333, productId: "111", productName: "MLB The Show 2024", quantity: 1, price: 63.33, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$"))
-//                      items.append(CartItem(id: 3334,productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$"))
-//                      items.append(CartItem(id: 4444,productId: "333", productName: "XBox Bone", quantity: 1, price: 383.13, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$"))
+        items.append(CartItem(id: 4444,productId: "333", productName: "XBox Bone of Epicness", quantity: 1, price: 383.13, productImageURL: "https://media.gamestop.com/i/gamestop/11155528/FuRyu-Laid-Back-Camp-Chobirume-Season-2-Chiaki-Ohgaki-2.7-In-Figure?$pdp2x$"))
+        items.append(CartItem(id: 3334,productId: "222", productName: "Pophead Mojo", quantity: 1, price: 32.45, productImageURL: "https://media.gamestop.com/i/gamestop/11143293/Honu-Turtle-Hawaiian-Islands-Word-Art-Womens-Premium-Blend-T-Shirt?$pdp2x$"))
         self.items = items
-
     }
     func createMockCartData() {
         

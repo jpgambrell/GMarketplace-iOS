@@ -31,22 +31,16 @@ struct CartView: View {
             .overlay(alignment: .bottom) {
                 if showCheckoutBtn {
                     Button(action: {
-//                        let order = OrderSubmitModel(items: cartService.cart.items, subTotal: cartService.cart.total, user_id: 1, paymentMethod: "", cartId: cartService.cart.id)
-//                        //path.append(order)
                         showCheckoutView = true
-//                        Task{
-//                            try await cartService.submitOrder(cartId: cartService.cart.id)
-//                        }
-                        //print("item count: \(String(describing: ))")
                     }, label: {
                         Text("Checkout")
-                            .font(.title)
+                            .font(.title3)
                             .padding()
                                            .foregroundColor(.white)
                                            .frame(width: 250, height: 50)
                                            .background(Color.black)
                                            .cornerRadius(10)
-                    }) .padding(.bottom, 50)
+                    }) .padding(.bottom, 10)
 
                         
                     
@@ -63,6 +57,9 @@ struct CartView: View {
                 }
             }
         }
+        .onAppear(){
+            showCheckoutBtn = cartService.cart.items.count > 0 ? true : false
+        }
         .onChange(of: cartService.cart.items.count) { _, newValue in
             showCheckoutBtn = newValue > 0 ? true : false
         }
@@ -73,6 +70,7 @@ struct CartView: View {
 #Preview {
     struct Preview: View {
         @State var cartService: CartService?
+        @State var showCheckoutBtn = true
         var body: some View {
             CartView()
         }

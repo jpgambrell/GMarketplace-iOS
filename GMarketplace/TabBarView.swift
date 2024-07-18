@@ -15,9 +15,9 @@ struct TabBarView: View {
                 Label("Home", systemImage: "storefront")
             }
             CartView().tabItem {
-                Label("Order", systemImage: "square.and.pencil")
+                Label("Cart", systemImage: "square.and.pencil")
                     
-            }
+            }.badge(cartService.cart.items.count)
         }
         .task {
             do {

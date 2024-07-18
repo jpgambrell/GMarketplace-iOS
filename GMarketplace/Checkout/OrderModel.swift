@@ -5,16 +5,19 @@ class OrderSubmitModel : Identifiable, Hashable {
     var id = UUID()
     let items : [OrderItem]
     let subTotal: Double
-    let tax: Double
+    
+    var tax: Double {
+        return 0.10 * subTotal
+    }
+    
     let status: String
     let userId: Int
     let paymentMethod: String
     let cartId: Int
     
-    init(id: UUID = UUID(), items: [CartItem], subTotal: Double, tax: Double = 0, status: String = "PENDING", userId: Int, paymentMethod: String, cartId: Int) {
+    init(id: UUID = UUID(), items: [CartItem], subTotal: Double = 0, status: String = "PENDING", userId: Int, paymentMethod: String, cartId: Int) {
         self.id = id
         self.subTotal = subTotal
-        self.tax = tax
         self.status = status
         self.userId = userId
         self.paymentMethod = paymentMethod
@@ -27,8 +30,8 @@ class OrderSubmitModel : Identifiable, Hashable {
     
     init(cart: CartModel) {
         self.id = UUID()
-        self.subTotal = cart.total
-        self.tax = cart.total * 0.85
+        self.subTotal = cart.subTotal
+       // self.tax = cart.total * 0.85
         self.status = "PENDING"
         self.userId = cart.userId
         self.paymentMethod = ""

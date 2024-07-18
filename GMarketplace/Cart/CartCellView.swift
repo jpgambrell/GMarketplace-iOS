@@ -23,12 +23,12 @@ struct CartCellView: View {
                 
                 VStack(alignment: .leading){
                     Text((item.productName))
-                        .font(.callout).bold()
+                        .font(.subheadline).bold()
                         .lineLimit(2)
                           .truncationMode(.tail)
                         .padding(.top, 12)
                         
-                    HStack{
+                    HStack(){
                         Button {
                             if quantity > 0 {
                                 quantity = quantity - 1
@@ -44,12 +44,10 @@ struct CartCellView: View {
                         
                         
                         Text("\(quantity)")
-                            .font(.title2)
+                            .font(.subheadline)
                             .padding()
                         Button {
                             quantity = quantity + 1
-                            print("add btn for: \(String(describing: item.productName))")
-                            //TODO update cart
                         } label: {
                             Image("increaseStepper")
                                 .resizable()
@@ -59,7 +57,8 @@ struct CartCellView: View {
                             
                         }.buttonStyle(BorderlessButtonStyle())
                         
-                    }.frame(width: 150)
+                    }
+                    .frame(width: 150)
                         .onChange(of: quantity) { _, newValue in
                                 Task{
                                     do {
@@ -78,17 +77,17 @@ struct CartCellView: View {
                         }
                         
                 }
-               // Spacer()
+                Spacer()
                 Text("\(item.price.formatAsCurrency())")
-                    .font(.title3)
+                    .font(.subheadline)
                     .padding(.top, 12)
-            }.padding([.leading, .trailing], 20)
+            }//.padding([.leading, .trailing], 20)
             
 
         
     }
         }
 
-//#Preview {
-//    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One with a kung fu grip and chucks", quantity: 1, price: 32.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
-//}
+#Preview {
+    CartCellView(cartItem: CartItem(id: 99, productId: "prodID444", productName: "Xbox One with a kung fu grip and chucks", quantity: 1, price: 332.30, productImageURL: "https://media.gamestop.com/i/gamestop/11103843/Lite-Brite-Mini?$pdp2x$" )).environment(CartService())
+}
