@@ -20,6 +20,8 @@
 		018362702BF7D67D001BA1A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183626F2BF7D67D001BA1A4 /* TabBarView.swift */; };
 		0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */; };
 		0183CE4D2C0A505300BE13E6 /* URLSessionTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183CE4C2C0A505300BE13E6 /* URLSessionTasks.swift */; };
+		01CA4AF52C5C377300F1EC1D /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA4AF42C5C377300F1EC1D /* TokenModel.swift */; };
+		01CA4AF72C5C37C800F1EC1D /* TokenAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA4AF62C5C37C800F1EC1D /* TokenAPIManager.swift */; };
 		01EF29DC2BF3BC2B00586122 /* GMarketplaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */; };
 		01EF29DE2BF3BC2B00586122 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF29DD2BF3BC2B00586122 /* CartView.swift */; };
 		01EF29E02BF3BC2C00586122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF29DF2BF3BC2C00586122 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		0183626F2BF7D67D001BA1A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPIManager.swift; sourceTree = "<group>"; };
 		0183CE4C2C0A505300BE13E6 /* URLSessionTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTasks.swift; sourceTree = "<group>"; };
+		01CA4AF42C5C377300F1EC1D /* TokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		01CA4AF62C5C37C800F1EC1D /* TokenAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIManager.swift; sourceTree = "<group>"; };
 		01EF29D82BF3BC2B00586122 /* GMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF29DB2BF3BC2B00586122 /* GMarketplaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMarketplaceApp.swift; sourceTree = "<group>"; };
 		01EF29DD2BF3BC2B00586122 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		01CA4AF32C5C376300F1EC1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01CA4AF42C5C377300F1EC1D /* TokenModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		01EF29CF2BF3BC2B00586122 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +149,11 @@
 		01EF29E92BF3BC5400586122 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				01CA4AF32C5C376300F1EC1D /* Models */,
 				01EF29ED2BF3BDC500586122 /* CatalogAPIManager.swift */,
 				0183CE4A2C0A2A4D00BE13E6 /* CartAPIManager.swift */,
 				0183CE4C2C0A505300BE13E6 /* URLSessionTasks.swift */,
+				01CA4AF62C5C37C800F1EC1D /* TokenAPIManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -257,6 +271,7 @@
 				01EF29F02BF3BE7400586122 /* HomepageView.swift in Sources */,
 				0183CE4B2C0A2A4D00BE13E6 /* CartAPIManager.swift in Sources */,
 				0107B96E2C24A5BB008A6462 /* CartService.swift in Sources */,
+				01CA4AF52C5C377300F1EC1D /* TokenModel.swift in Sources */,
 				01EF29F82BF530C100586122 /* SectionHeaderView.swift in Sources */,
 				0107B97B2C46BFE0008A6462 /* OrderModel.swift in Sources */,
 				0107B96A2C221A67008A6462 /* CartCellView.swift in Sources */,
@@ -266,6 +281,7 @@
 				01EF29F22BF3F52E00586122 /* ProductDetailsView.swift in Sources */,
 				0140B13C2BF5536400B86301 /* ProductGridView.swift in Sources */,
 				0107B97D2C46DB44008A6462 /* OrderItemCellView.swift in Sources */,
+				01CA4AF72C5C37C800F1EC1D /* TokenAPIManager.swift in Sources */,
 				01EF29F62BF4101900586122 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

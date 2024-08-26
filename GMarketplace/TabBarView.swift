@@ -1,9 +1,3 @@
-//
-//  TabBarView.swift
-//  GMarketplace
-//
-//  Created by John Gambrell on 5/17/24.
-//
 
 import SwiftUI
 

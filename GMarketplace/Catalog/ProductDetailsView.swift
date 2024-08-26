@@ -37,26 +37,51 @@ struct ProductDetailsView: View {
                 }
             }
             .padding(.top, 10)
-            Spacer()
-            Button("Add to Cart") {
+           // Spacer()
+//            Button("Add to Cart") {
+//
+//                Task {
+//                    do {
+//                       // guard let cartId = cartService.cart?.id else {return}
+//                        let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartService.cart.id, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
+//                        print("cart resp: \(res)")
+//                        cartService.cart = res 
+//                       // try await cartService.getCart()
+//                       // toast = Toast(style: .success, message: "Saved.")
+//                    }
+//                    catch {
+//                        print(error)
+//                    }
+//                }
+//               
+//                
+//            }.padding(20)
+        }.padding(.bottom, 65)
+        .overlay(alignment: .bottom) {
+           
+                  Button(action: {
+                      Task {
+                          do {
+                              let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartService.cart.id, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
+                              print("cart resp: \(res)")
+                              cartService.cart = res
+                          }
+                          catch {
+                              print(error)
+                          }
+                      }
+                  }, label: {
+                      Text("Add to Cart")
+                          .font(.title3)
+                          .padding()
+                                         .foregroundColor(.white)
+                                         .frame(width: 250, height: 50)
+                                         .background(Color.black)
+                                         .cornerRadius(10)
+                  }) 
+                    .padding(.bottom, 10)
 
-                Task {
-                    do {
-                       // guard let cartId = cartService.cart?.id else {return}
-                        let res: CartModel =  try await cartService.cartAPIManager.addToCart(cartId: cartService.cart.id, productId: product.id!, productName: product.name!, quantity: 1, price: product.price!, productImageURL: product.images?.first ?? "")
-                        print("cart resp: \(res)")
-                        cartService.cart = res 
-                       // try await cartService.getCart()
-                       // toast = Toast(style: .success, message: "Saved.")
-                    }
-                    catch {
-                        print(error)
-                    }
-                }
-               
-                
-            }.padding(20)
-        }// .toastView(toast: $toast)
+          }
            
     }
 }

@@ -30,6 +30,22 @@ struct HeaderView: View {
             }
             .padding(.top, 5)
             
+            Button(action: {
+                Task {
+                    do {
+                        let t = TokenAPIManager()
+                        
+                     let resp =   try await t.login(userName: "john_gambrell@yahoo.com", password: "Averyjk10!")
+                        print(resp)
+                    } catch {
+                        print(error)
+                    }
+                }
+            }, label: {
+                Text("LOGIN")
+            })
+                
+            
             .padding(.bottom,(headerViewState == .detail) ? 20 : 0)
             if headerViewState == .full {
                 HStack(alignment: .bottom){
